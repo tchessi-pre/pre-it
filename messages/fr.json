@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "services": "Services",
+    "projects": "Projets",
+    "process": "Processus",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Construisez votre SaaS. Plus vite.",
+    "subheadline": "Je conçois et développe des plateformes SaaS évolutives, de l'idée à la production, avec React, Node.js et TypeScript.",
+    "cta_primary": "Démarrer un projet",
+    "cta_secondary": "Voir mes réalisations"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Expertise complète en développement SaaS",
+    "items": {
+      "mvp": {
+        "title": "Développement MVP SaaS",
+        "description": "Transformez votre idée en produit fonctionnel. Je construis des MVP qui valident votre modèle économique et attirent vos premiers utilisateurs."
+      },
+      "fullstack": {
+        "title": "Développement Produit Fullstack",
+        "description": "Développement complet de l'architecture base de données à l'interface utilisateur. Solutions évolutives avec technologies modernes."
+      },
+      "scaling": {
+        "title": "Évolution & Scaling",
+        "description": "Enrichissez votre produit existant avec de nouvelles fonctionnalités. Maintenez la qualité du code tout en accélérant votre roadmap."
+      },
+      "audit": {
+        "title": "Audit Technique",
+        "description": "Analyse approfondie de votre code, architecture et performance. Recommandations concrètes pour l'amélioration."
+      }
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Des produits réels, un impact réel",
+    "items": {
+      "technicert": {
+        "name": "Technicert",
+        "type": "Plateforme SaaS de Certification",
+        "problem": "Les organismes de certification peinaient avec des processus manuels et des systèmes fragmentés.",
+        "solution": "Création d'une plateforme SaaS complète pour créer, gérer et délivrer des certifications professionnelles à grande échelle.",
+        "stack": "Next.js, Node.js, PostgreSQL, Stripe"
+      },
+      "klikango": {
+        "name": "Klikango",
+        "type": "Application Commerce Mobile & Web",
+        "problem": "Les commerçants locaux avaient besoin d'une solution moderne pour vendre en ligne avec paiements et suivi de livraison.",
+        "solution": "Développement d'une solution e-commerce cross-platform avec gestion des commandes en temps réel et paiements intégrés.",
+        "stack": "React Native, Next.js, Node.js, Stripe"
+      },
+      "expansi": {
+        "name": "Expansi",
+        "type": "Plateforme Juridique B2B",
+        "problem": "Les professionnels du droit manquaient d'outils efficaces pour réseauter et collaborer entre juridictions.",
+        "solution": "Création d'une plateforme de networking professionnel connectant les avocats avec des opportunités d'affaires mondiales.",
+        "stack": "Next.js, TypeScript, PostgreSQL, AWS"
+      }
+    }
+  },
+  "why": {
+    "title": "Pourquoi PRE-IT",
+    "subtitle": "Plus que du code. De l'ingénierie produit.",
+    "items": {
+      "product": {
+        "title": "Vision Produit",
+        "description": "Je pense au-delà des fonctionnalités. Chaque décision est guidée par la valeur utilisateur et l'impact business."
+      },
+      "fullstack": {
+        "title": "Expertise Fullstack",
+        "description": "De la conception base de données à l'interface pixel-perfect. Un ingénieur, une responsabilité complète."
+      },
+      "experience": {
+        "title": "Expérience SaaS Réelle",
+        "description": "Connaissances éprouvées par la construction et le déploiement de produits SaaS en production."
+      },
+      "execution": {
+        "title": "Exécution Rapide",
+        "description": "Itération rapide sans compromettre la qualité. Livrer tôt, apprendre vite, améliorer continuellement."
+      }
+    }
+  },
+  "process": {
+    "title": "Processus",
+    "subtitle": "De l'idée au lancement en trois phases",
+    "steps": {
+      "understand": {
+        "number": "01",
+        "title": "Comprendre votre idée",
+        "description": "Immersion profonde dans votre vision, votre marché et vos utilisateurs. Définition de la proposition de valeur et des exigences techniques."
+      },
+      "build": {
+        "number": "02",
+        "title": "Construire votre produit",
+        "description": "Développement itératif avec démos régulières. Vous restez impliqué tout au long du processus de création."
+      },
+      "launch": {
+        "number": "03",
+        "title": "Lancer et scaler",
+        "description": "Déploiement en production avec monitoring et analytics. Accompagnement de votre croissance avec des améliorations continues."
+      }
+    }
+  },
+  "cta": {
+    "title": "Construisons votre SaaS",
+    "subtitle": "Prêt à transformer votre idée en produit évolutif ?",
+    "button": "Réserver un appel"
+  },
+  "footer": {
+    "brand": "PRE-IT",
+    "tagline": "Studio de Développement SaaS",
+    "rights": "Tous droits réservés."
+  }
+}
