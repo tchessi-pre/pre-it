@@ -17,15 +17,14 @@ export function HeroSection() {
   const techStack = ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'];
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20">
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
         {/* Left side - Text content */}
         <div className="text-center lg:text-left">
           {/* Badge */}
           <div
-            className={`mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 transition-all duration-700 ${
-              mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-            }`}
+            className={`mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+              }`}
           >
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">SaaS Development Studio</span>
@@ -33,34 +32,31 @@ export function HeroSection() {
 
           {/* Headline */}
           <h1
-            className={`mb-6 text-balance text-4xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 sm:text-5xl md:text-6xl lg:text-7xl ${
-              mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`mb-6 text-balance text-4xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 sm:text-5xl md:text-6xl lg:text-7xl ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             <span className="block text-foreground">{t('headline').split('.')[0]}.</span>
-            <span className="bg-gradient-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
               {t('headline').split('.')[1]?.trim() || 'Faster.'}
             </span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className={`mx-auto mb-10 max-w-2xl text-pretty text-lg text-muted-foreground transition-all duration-700 delay-200 sm:text-xl lg:mx-0 ${
-              mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`mx-auto mb-10 max-w-2xl text-pretty text-lg text-muted-foreground transition-all duration-700 delay-200 sm:text-xl lg:mx-0 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             {t('subheadline')}
           </p>
 
           {/* CTAs */}
           <div
-            className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row lg:justify-start ${
-              mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent px-8 text-primary-foreground transition-all hover:scale-105"
+              className="group relative overflow-hidden bg-linear-to-r from-primary to-accent px-8 text-primary-foreground transition-all hover:scale-105"
               asChild
             >
               <a href="#contact">
@@ -85,14 +81,13 @@ export function HeroSection() {
 
           {/* Tech stack floating badges */}
           <div
-            className={`mt-12 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 lg:justify-start ${
-              mounted ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`mt-12 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             {techStack.map((tech, index) => (
               <span
                 key={tech}
-                className="glass rounded-full px-4 py-2 text-xs font-medium text-muted-foreground transition-all duration-500"
+                className="glass rounded-full px-4 py-2 text-xs font-medium text-white transition-all duration-500"
                 style={{
                   transitionDelay: mounted ? `${600 + index * 100}ms` : '0ms',
                   opacity: mounted ? 1 : 0,
@@ -107,9 +102,8 @@ export function HeroSection() {
 
         {/* Right side - Animated Image */}
         <div
-          className={`relative flex items-center justify-center transition-all duration-1000 delay-300 ${
-            mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`}
+          className={`relative flex items-center justify-center transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`}
         >
           {/* Outer glow ring */}
           <div
@@ -129,7 +123,7 @@ export function HeroSection() {
 
           {/* Pulsing background glow */}
           <div
-            className="absolute h-[300px] w-[300px] rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-neon-blue/30 blur-3xl md:h-[400px] md:w-[400px]"
+            className="absolute h-[300px] w-[300px] rounded-full bg-linear-to-r from-primary/30 via-accent/20 to-neon-blue/30 blur-3xl md:h-[400px] md:w-[400px]"
             style={{
               animation: mounted ? 'pulse-glow 3s ease-in-out infinite' : 'none',
             }}
@@ -158,28 +152,30 @@ export function HeroSection() {
               }}
             >
               {/* Image glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-primary/20 via-transparent to-accent/20 blur-2xl" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-primary/20 via-transparent to-accent/20 blur-2xl" />
 
               {/* The actual image */}
               <div className="relative transition-transform duration-300 hover:scale-105">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Free-removebg-preview-ssrzQgmZApEW1tLyKVtpExlarFkP4Z.png"
+                  src="/hand-pre-it.png"
                   alt="PRE-IT - Web Engineering & Digital Solutions"
-                  width={450}
-                  height={450}
+                  width={400}
+                  height={400}
+                  sizes="(min-width: 1024px) 450px, 320px"
+                  quality={85}
                   className="relative z-10 drop-shadow-[0_0_30px_rgba(0,245,255,0.3)]"
                   priority
                 />
 
                 {/* Shine effect overlay */}
-                {mounted && (
+                {/* {mounted && (
                   <div
-                    className="absolute inset-0 z-20 bg-gradient-to-tr from-transparent via-white/10 to-transparent"
+                    className="absolute inset-0 z-20 bg-linear-to-tr from-transparent via-white/10 to-transparent"
                     style={{
                       animation: 'shine 5s ease-in-out infinite',
                     }}
                   />
-                )}
+                )} */}
               </div>
             </div>
           </div>
@@ -209,9 +205,8 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <div
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-700 delay-1000 ${
-          mounted ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-700 delay-1000 ${mounted ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         <div
           className="flex flex-col items-center gap-2"

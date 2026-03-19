@@ -1,116 +1,161 @@
 {
-  "nav": {
-    "services": "Services",
-    "projects": "Projects",
-    "process": "Process",
-    "contact": "Contact"
-  },
-  "hero": {
-    "headline": "Build your SaaS. Faster.",
-    "subheadline": "I design and develop scalable SaaS platforms from idea to production using React, Node.js and TypeScript.",
-    "cta_primary": "Start a project",
-    "cta_secondary": "View my work"
-  },
-  "services": {
-    "title": "Services",
-    "subtitle": "End-to-end SaaS development expertise",
-    "items": {
-      "mvp": {
-        "title": "SaaS MVP Development",
-        "description": "Transform your idea into a working product. I build minimum viable products that validate your business model and attract early users."
-      },
-      "fullstack": {
-        "title": "Fullstack Product Development",
-        "description": "Complete product development from database architecture to user interface. Scalable solutions built with modern technologies."
-      },
-      "scaling": {
-        "title": "Feature Scaling",
-        "description": "Expand your existing product with new features and integrations. Maintain code quality while accelerating your roadmap."
-      },
-      "audit": {
-        "title": "Technical Audit",
-        "description": "Comprehensive review of your codebase, architecture, and performance. Get actionable recommendations for improvement."
-      }
-    }
-  },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "Real products, real impact",
-    "items": {
-      "technicert": {
-        "name": "Technicert",
-        "type": "SaaS Certification Platform",
-        "problem": "Certification providers struggled with manual processes and fragmented systems for managing candidates.",
-        "solution": "Built a complete SaaS platform for creating, managing, and delivering professional certifications at scale.",
-        "stack": "Next.js, Node.js, PostgreSQL, Stripe"
-      },
-      "klikango": {
-        "name": "Klikango",
-        "type": "Mobile & Web Commerce App",
-        "problem": "Local merchants needed a modern way to sell online with integrated payments and delivery tracking.",
-        "solution": "Developed a cross-platform commerce solution with real-time order management and payment processing.",
-        "stack": "React Native, Next.js, Node.js, Stripe"
-      },
-      "expansi": {
-        "name": "Expansi",
-        "type": "B2B Legal Platform",
-        "problem": "Legal professionals lacked efficient tools to network and collaborate across jurisdictions.",
-        "solution": "Created a professional networking platform connecting lawyers with business opportunities worldwide.",
-        "stack": "Next.js, TypeScript, PostgreSQL, AWS"
-      }
-    }
-  },
-  "why": {
-    "title": "Why PRE-IT",
-    "subtitle": "More than code. Product engineering.",
-    "items": {
-      "product": {
-        "title": "Product Mindset",
-        "description": "I think beyond features. Every decision is driven by user value and business impact."
-      },
-      "fullstack": {
-        "title": "Fullstack Expertise",
-        "description": "From database design to pixel-perfect UI. One engineer, complete ownership."
-      },
-      "experience": {
-        "title": "Real SaaS Experience",
-        "description": "Battle-tested knowledge from building and shipping production SaaS products."
-      },
-      "execution": {
-        "title": "Fast Execution",
-        "description": "Rapid iteration without compromising quality. Ship early, learn fast, improve continuously."
-      }
-    }
-  },
-  "process": {
-    "title": "Process",
-    "subtitle": "From idea to launch in three phases",
-    "steps": {
-      "understand": {
-        "number": "01",
-        "title": "Understand your idea",
-        "description": "Deep dive into your vision, market, and users. Define the core value proposition and technical requirements."
-      },
-      "build": {
-        "number": "02",
-        "title": "Build your product",
-        "description": "Iterative development with regular demos. You stay involved throughout the entire build process."
-      },
-      "launch": {
-        "number": "03",
-        "title": "Launch and scale",
-        "description": "Deploy to production with monitoring and analytics. Support your growth with ongoing improvements."
-      }
-    }
-  },
-  "cta": {
-    "title": "Let's build your SaaS",
-    "subtitle": "Ready to turn your idea into a scalable product?",
-    "button": "Book a call"
-  },
-  "footer": {
-    "brand": "PRE-IT",
-    "tagline": "SaaS Development Studio",
-    "rights": "All rights reserved."
-  }
+	"nav": {
+		"services": "Services",
+		"projects": "Projects",
+		"process": "Process",
+		"contact": "Contact"
+	},
+	"hero": {
+		"headline": "Build your SaaS. Faster.",
+		"subheadline": "I’m a freelance engineer building scalable SaaS products from idea to production using React, Node.js and TypeScript.",
+		"cta_primary": "Start a project",
+		"cta_secondary": "View my work"
+	},
+	"services": {
+		"title": "Services",
+		"subtitle": "End-to-end SaaS development expertise",
+		"items": {
+			"mvp": {
+				"title": "SaaS MVP Development",
+				"description": "Transform your idea into a working product. I build minimum viable products that validate your business model and attract early users."
+			},
+			"fullstack": {
+				"title": "Fullstack Product Development",
+				"description": "Complete product development from database architecture to user interface. Scalable solutions built with modern technologies."
+			},
+			"scaling": {
+				"title": "Feature Scaling",
+				"description": "Expand your existing product with new features and integrations. Maintain code quality while accelerating your roadmap."
+			},
+			"audit": {
+				"title": "Technical Audit",
+				"description": "Comprehensive review of your codebase, architecture, and performance. Get actionable recommendations for improvement."
+			}
+		}
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Real products, real impact",
+		"items": {
+			"technicert": {
+				"name": "Technicert",
+				"type": "SaaS Certification Platform",
+				"problem": "Certification providers struggled with manual processes and fragmented systems for managing candidates.",
+				"solution": "Built a complete SaaS platform for creating, managing, and delivering professional certifications at scale.",
+				"stack": "Next.js, Node.js, PostgreSQL, Stripe"
+			},
+			"klikango": {
+				"name": "Klikango",
+				"type": "Mobile & Web Commerce App",
+				"problem": "Local merchants needed a modern way to sell online with integrated payments and delivery tracking.",
+				"solution": "Developed a cross-platform commerce solution with real-time order management and payment processing.",
+				"stack": "React Native, Next.js, Node.js, Stripe"
+			},
+			"expansi": {
+				"name": "Expansi",
+				"type": "B2B Legal Platform",
+				"problem": "Legal professionals lacked efficient tools to network and collaborate across jurisdictions.",
+				"solution": "Created a professional networking platform connecting lawyers with business opportunities worldwide.",
+				"stack": "Next.js, TypeScript, PostgreSQL, AWS"
+			}
+		}
+	},
+	"why": {
+		"title": "Why work with me ?",
+		"subtitle": "More than code. Product engineering.",
+		"items": {
+			"product": {
+				"title": "Product Mindset",
+				"description": "I think beyond features. Every decision is driven by user value and business impact."
+			},
+			"fullstack": {
+				"title": "Fullstack Expertise",
+				"description": "From database design to pixel-perfect UI. One engineer, complete ownership."
+			},
+			"experience": {
+				"title": "Real SaaS Experience",
+				"description": "Battle-tested knowledge from building and shipping production SaaS products."
+			},
+			"execution": {
+				"title": "Fast Execution",
+				"description": "Rapid iteration without compromising quality. Ship early, learn fast, improve continuously."
+			}
+		}
+	},
+	"process": {
+		"title": "Process",
+		"subtitle": "From idea to launch in three phases",
+		"steps": {
+			"understand": {
+				"number": "01",
+				"title": "Understand your idea",
+				"description": "Deep dive into your vision, market, and users. Define the core value proposition and technical requirements."
+			},
+			"build": {
+				"number": "02",
+				"title": "Build your product",
+				"description": "Iterative development with regular demos. You stay involved throughout the entire build process."
+			},
+			"launch": {
+				"number": "03",
+				"title": "Launch and scale",
+				"description": "Deploy to production with monitoring and analytics. Support your growth with ongoing improvements."
+			}
+		}
+	},
+	"cta": {
+		"title": "Let's build your SaaS",
+		"subtitle": "Ready to turn your idea into a scalable product? Let’s talk.",
+		"button": "Book a discovery call",
+		"recipient_email": "contact@pre-it.dev",
+		"form": {
+			"title": "Book a discovery call",
+			"subtitle": "Share a few details and I’ll get back to you quickly.",
+			"mail_subject": "Discovery call request — PRE-IT",
+			"fields": {
+				"name": "Name",
+				"email": "Email",
+				"company": "Company (optional)",
+				"date": "Date (optional)",
+				"time": "Time (optional)",
+				"timezone": "Timezone (optional)",
+				"message": "What do you need?"
+			},
+			"placeholders": {
+				"name": "Your name",
+				"email": "you@example.com",
+				"company": "Your company",
+				"message": "Briefly describe your project (goal, timeline, stack, etc.)"
+			},
+			"actions": {
+				"cancel": "Cancel",
+				"submit": "Send request"
+			},
+			"success": {
+				"title": "Request ready",
+				"body": "Your email client should open with prefilled details. If nothing opens, copy the link and send it.",
+				"copy": "Copy link",
+				"open_email": "Open email"
+			},
+			"summary": {
+				"name": "Name",
+				"email": "Email",
+				"company": "Company",
+				"date": "Date",
+				"time": "Time",
+				"timezone": "Timezone",
+				"message": "Message"
+			},
+			"errors": {
+				"name_required": "Your name is required.",
+				"email_invalid": "Invalid email.",
+				"message_required": "Message is required."
+			}
+		}
+	},
+	"footer": {
+		"brand": "PRE-IT",
+		"tagline": "Freelance SaaS Engineer",
+		"rights": "All rights reserved."
+	}
 }

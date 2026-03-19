@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useEffect, useState, useRef } from 'react';
 import { MessageSquare, Wrench, Rocket } from 'lucide-react';
+import { SectionHeader } from '@/components/section-header';
 
 const steps = [
   { key: 'understand', icon: MessageSquare },
@@ -36,24 +37,19 @@ export function ProcessSection() {
   return (
     <section id="process" ref={sectionRef} className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Section header */}
-        <div
-          className={`mb-16 text-center transition-all duration-700 ${
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-          }`}
-        >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              {t('title')}
-            </span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">{t('subtitle')}</p>
-        </div>
+        <SectionHeader
+          title={t('title')}
+          subtitle={t('subtitle')}
+          isInView={isInView}
+          titleGradientClassName="bg-linear-to-r from-foreground via-primary to-muted-foreground"
+          subtitleClassName="md:text-lg"
+          className="mb-16"
+        />
 
         {/* Process timeline */}
         <div className="relative">
           {/* Connection line - desktop */}
-          <div className="absolute left-0 right-0 top-[60px] hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
+          <div className="absolute left-0 right-0 top-[60px] hidden h-px bg-linear-to-r from-transparent via-border to-transparent lg:block" />
 
           <div className="grid gap-8 lg:grid-cols-3 lg:gap-6">
             {steps.map((step, index) => {
@@ -61,26 +57,25 @@ export function ProcessSection() {
               return (
                 <div
                   key={step.key}
-                  className={`relative transition-all duration-700 ${
-                    isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
+                  className={`relative transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
                   style={{
                     transitionDelay: isInView ? `${index * 150}ms` : '0ms',
                   }}
                 >
                   {/* Connection line - mobile */}
                   {index < steps.length - 1 && (
-                    <div className="absolute left-6 top-[60px] h-full w-px bg-gradient-to-b from-border to-transparent lg:hidden" />
+                    <div className="absolute left-6 top-[60px] h-full w-px bg-linear-to-b from-border to-transparent lg:hidden" />
                   )}
 
                   <div className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]">
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                     {/* Step number with icon */}
                     <div className="relative z-10 mb-6 flex items-center gap-4">
                       <div
-                        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent transition-transform duration-300 hover:scale-110"
+                        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-primary to-accent transition-transform duration-300 hover:scale-110"
                         style={{
                           boxShadow: '0 0 20px oklch(0.75 0.18 195 / 0.4)',
                         }}
@@ -90,7 +85,7 @@ export function ProcessSection() {
                         {/* Pulse effect */}
                         {mounted && (
                           <div
-                            className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent"
+                            className="absolute inset-0 rounded-full bg-linear-to-br from-primary to-accent"
                             style={{
                               animation: 'pulse-ring 2s ease-out infinite',
                             }}
@@ -114,7 +109,7 @@ export function ProcessSection() {
                     </div>
 
                     {/* Decorative corner */}
-                    <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-50" />
+                    <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-linear-to-br from-primary/10 to-accent/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-50" />
                   </div>
                 </div>
               );
