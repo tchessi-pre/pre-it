@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { gugi } from '@/lib/fonts';
 
 type SectionHeaderProps = {
   title: ReactNode;
@@ -36,6 +37,7 @@ export function SectionHeader({
       <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         <span
           className={cn(
+            gugi.className,
             'bg-clip-text [-webkit-background-clip:text] text-transparent',
             titleGradientClassName ?? 'bg-linear-to-r from-foreground via-primary to-foreground'
           )}

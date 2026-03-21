@@ -6,14 +6,15 @@
 		"contact": "Contact"
 	},
 	"hero": {
-		"headline": "Construisez votre SaaS. Plus vite.",
-		"subheadline": "Je suis freelance et je conçois/développe des produits SaaS évolutifs, de l’idée à la production, avec React, Node.js et TypeScript.",
+		"badge": "Studio de développement produit",
+		"headline": "Construisez votre produit. Plus vite.",
+		"subheadline": "Je suis freelance et je conçois/développe des produits web et mobiles évolutifs, de l’idée à la production, avec React, Node.js et TypeScript.",
 		"cta_primary": "Démarrer un projet",
 		"cta_secondary": "Voir mes réalisations"
 	},
 	"services": {
 		"title": "Services",
-		"subtitle": "Expertise complète en développement SaaS",
+		"subtitle": "Expertise complète en développement produit",
 		"items": {
 			"mvp": {
 				"title": "Développement MVP SaaS",
@@ -44,6 +45,13 @@
 				"solution": "Création d'une plateforme SaaS complète pour créer, gérer et délivrer des certifications professionnelles à grande échelle.",
 				"stack": "Next.js, Node.js, PostgreSQL, Stripe"
 			},
+			"afhome": {
+				"name": "AF HOME Services",
+				"type": "Site vitrine — Fret France ↔ Togo",
+				"problem": "Les clients avaient besoin d’un site clair pour comprendre les options d’expédition, estimer un tarif et contacter rapidement l’équipe.",
+				"solution": "Création d’un site vitrine mettant en avant le fret maritime et aérien, avec bascule entre modes, calculateur de tarifs, formulaire de réservation et contact WhatsApp.",
+				"stack": "Site vitrine, Responsive, SEO, Formulaire, Calculateur"
+			},
 			"klikango": {
 				"name": "Klikango",
 				"type": "Application Commerce Mobile & Web",
@@ -56,7 +64,21 @@
 				"type": "Plateforme Juridique B2B",
 				"problem": "Les professionnels du droit manquaient d'outils efficaces pour réseauter et collaborer entre juridictions.",
 				"solution": "Création d'une plateforme de networking professionnel connectant les avocats avec des opportunités d'affaires mondiales.",
-				"stack": "Next.js, TypeScript, PostgreSQL, AWS"
+				"stack": "Next.js, TypeScript, Strapi, AWS, Stripe"
+			},
+			"alafiaplus": {
+				"name": "Alafia+",
+				"type": "Application Santé Mobile & Web (Togo)",
+				"problem": "Accès aux soins difficile, prévention limitée et manque de lien fluide entre patients et professionnels de santé.",
+				"solution": "Développement d’une application mobile et web dédiée au Togo pour faciliter l’accès aux soins, améliorer la prévention et connecter patients et soignants (emailing Brevo, visio Twilio, temps réel via WebSocket).",
+				"stack": "React 19, Vite, TypeScript, Tailwind CSS v4, React Query, Zustand, React Hook Form, Zod, Axios, AWS S3, Socket.IO, React Router, PWA, Brevo, Twilio"
+			},
+			"zongopay": {
+				"name": "Zongo Pay",
+				"type": "Solution de paiement (Togo)",
+				"problem": "Les paiements du quotidien restent fragmentés et peu adaptés aux réalités locales (mobile money, commerce de proximité, etc.).",
+				"solution": "Conception d’une solution de paiement moderne, rapide et sécurisée adaptée à l’écosystème économique du Togo, avec intégration mobile money et parcours optimisés pour commerçants et utilisateurs.",
+				"stack": "React, Vite, TypeScript, Tailwind CSS, shadcn/ui, Radix UI, React Query, React Hook Form, Zod, React Router, PWA, QR code, Hono, Prisma, Fedapay, JWT, WebSockets"
 			}
 		}
 	},
@@ -73,8 +95,8 @@
 				"description": "De la conception base de données à l'interface pixel-perfect. Un ingénieur, une responsabilité complète."
 			},
 			"experience": {
-				"title": "Expérience SaaS Réelle",
-				"description": "Connaissances éprouvées par la construction et le déploiement de produits SaaS en production."
+				"title": "Production & DevOps",
+				"description": "Déploiement, CI/CD, Docker, monitoring et bonnes pratiques pour un SaaS stable en production."
 			},
 			"execution": {
 				"title": "Exécution Rapide",
@@ -104,7 +126,7 @@
 		}
 	},
 	"cta": {
-		"title": "Construisons votre SaaS",
+		"title": "Construisons votre produit",
 		"subtitle": "Prêt à transformer votre idée en produit évolutif ? Parlons-en.",
 		"button": "Réserver un appel découverte",
 		"recipient_email": "contact@pre-it.dev",
@@ -155,7 +177,8 @@
 	},
 	"footer": {
 		"brand": "PRE-IT",
-		"tagline": "Freelance Développeur SaaS",
+		"tagline": "Freelance Web Ingenieur",
+		"back_to_top": "Retour en haut",
 		"rights": "Tous droits réservés."
 	}
 }

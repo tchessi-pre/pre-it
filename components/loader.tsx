@@ -37,7 +37,7 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ${
+      className={`fixed inset-0 z-100 flex flex-col items-center justify-center bg-background transition-opacity duration-500 ${
         fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
@@ -66,7 +66,7 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
           {/* Logo image */}
           <div className="relative h-32 w-32 md:h-40 md:w-40">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Free-removebg-preview-ssrzQgmZApEW1tLyKVtpExlarFkP4Z.png"
+              src="/hand-pre-it.png"
               alt="PRE-IT Logo"
               fill
               className="object-contain drop-shadow-[0_0_20px_rgba(0,255,255,0.5)]"
@@ -93,7 +93,7 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
           <div className="h-1 w-full rounded-full bg-secondary/50 overflow-hidden">
             {/* Progress fill */}
             <div
-              className="h-full rounded-full bg-gradient-to-r from-primary via-accent to-primary transition-all duration-100 ease-out"
+              className="h-full rounded-full bg-linear-to-r from-primary via-accent to-primary transition-all duration-100 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -129,26 +129,26 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
 
       {/* Corner decorations */}
       <div className="absolute top-8 left-8 w-16 h-16">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-primary/50 to-transparent" />
-        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-primary/50 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-primary/50 to-transparent" />
+        <div className="absolute top-0 left-0 w-px h-full bg-linear-to-b from-primary/50 to-transparent" />
       </div>
       <div className="absolute top-8 right-8 w-16 h-16">
-        <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-primary/50 to-transparent" />
-        <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-primary/50 to-transparent" />
+        <div className="absolute top-0 right-0 w-full h-px bg-linear-to-l from-primary/50 to-transparent" />
+        <div className="absolute top-0 right-0 w-px h-full bg-linear-to-b from-primary/50 to-transparent" />
       </div>
       <div className="absolute bottom-8 left-8 w-16 h-16">
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-primary/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-px h-full bg-gradient-to-t from-primary/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-primary/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-px h-full bg-linear-to-t from-primary/50 to-transparent" />
       </div>
       <div className="absolute bottom-8 right-8 w-16 h-16">
-        <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-primary/50 to-transparent" />
-        <div className="absolute bottom-0 right-0 w-px h-full bg-gradient-to-t from-primary/50 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-full h-px bg-linear-to-l from-primary/50 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-px h-full bg-linear-to-t from-primary/50 to-transparent" />
       </div>
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
+          className="absolute left-0 w-full h-px bg-linear-to-r from-transparent via-primary/30 to-transparent"
           style={{
             animation: 'scan-line 3s linear infinite',
           }}

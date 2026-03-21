@@ -17,7 +17,7 @@ export function HeroSection() {
   const techStack = ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'];
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+    <section className="relative flex min-h-screen items-start justify-center overflow-x-hidden pt-20">
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
         {/* Left side - Text content */}
         <div className="text-center lg:text-left">
@@ -27,7 +27,7 @@ export function HeroSection() {
               }`}
           >
             <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">SaaS Development Studio</span>
+            <span className="text-sm font-medium text-primary">{t('badge')}</span>
           </div>
 
           {/* Headline */}
@@ -48,56 +48,6 @@ export function HeroSection() {
           >
             {t('subheadline')}
           </p>
-
-          {/* CTAs */}
-          <div
-            className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <Button
-              size="lg"
-              className="group relative overflow-hidden bg-linear-to-r from-primary to-accent px-8 text-primary-foreground transition-all hover:scale-105"
-              asChild
-            >
-              <a href="#contact">
-                <span className="relative z-10 flex items-center gap-2">
-                  {t('cta_primary')}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="group border-border/50 bg-secondary/50 px-8 backdrop-blur-sm transition-all hover:border-primary/50 hover:bg-secondary"
-              asChild
-            >
-              <a href="#projects">
-                <Code2 className="mr-2 h-4 w-4 text-primary" />
-                {t('cta_secondary')}
-              </a>
-            </Button>
-          </div>
-
-          {/* Tech stack floating badges */}
-          <div
-            className={`mt-12 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100' : 'opacity-0'
-              }`}
-          >
-            {techStack.map((tech, index) => (
-              <span
-                key={tech}
-                className="glass rounded-full px-4 py-2 text-xs font-medium text-white transition-all duration-500"
-                style={{
-                  transitionDelay: mounted ? `${600 + index * 100}ms` : '0ms',
-                  opacity: mounted ? 1 : 0,
-                  transform: mounted ? 'scale(1)' : 'scale(0.8)',
-                }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Right side - Animated Image */}
@@ -107,7 +57,7 @@ export function HeroSection() {
         >
           {/* Outer glow ring */}
           <div
-            className="absolute h-[400px] w-[400px] rounded-full border border-primary/20 md:h-[500px] md:w-[500px]"
+            className="absolute h-[320px] w-[320px] rounded-full border border-primary/20 md:h-[420px] md:w-[420px]"
             style={{
               animation: mounted ? 'pulse-ring 4s ease-in-out infinite' : 'none',
             }}
@@ -115,7 +65,7 @@ export function HeroSection() {
 
           {/* Middle glow ring */}
           <div
-            className="absolute h-[350px] w-[350px] rounded-full border border-accent/30 md:h-[450px] md:w-[450px]"
+            className="absolute h-[280px] w-[280px] rounded-full border border-accent/30 md:h-[380px] md:w-[380px]"
             style={{
               animation: mounted ? 'spin 8s linear infinite' : 'none',
             }}
@@ -123,7 +73,7 @@ export function HeroSection() {
 
           {/* Pulsing background glow */}
           <div
-            className="absolute h-[300px] w-[300px] rounded-full bg-linear-to-r from-primary/30 via-accent/20 to-neon-blue/30 blur-3xl md:h-[400px] md:w-[400px]"
+            className="absolute h-[260px] w-[260px] rounded-full bg-linear-to-r from-primary/30 via-accent/20 to-neon-blue/30 blur-3xl md:h-[340px] md:w-[340px]"
             style={{
               animation: mounted ? 'pulse-glow 3s ease-in-out infinite' : 'none',
             }}
@@ -159,23 +109,13 @@ export function HeroSection() {
                 <Image
                   src="/hand-pre-it.png"
                   alt="PRE-IT - Web Engineering & Digital Solutions"
-                  width={400}
-                  height={400}
-                  sizes="(min-width: 1024px) 450px, 320px"
+                  width={320}
+                  height={320}
+                  sizes="(min-width: 1024px) 360px, 280px"
                   quality={85}
                   className="relative z-10 drop-shadow-[0_0_30px_rgba(0,245,255,0.3)]"
                   priority
                 />
-
-                {/* Shine effect overlay */}
-                {/* {mounted && (
-                  <div
-                    className="absolute inset-0 z-20 bg-linear-to-tr from-transparent via-white/10 to-transparent"
-                    style={{
-                      animation: 'shine 5s ease-in-out infinite',
-                    }}
-                  />
-                )} */}
               </div>
             </div>
           </div>
@@ -184,7 +124,7 @@ export function HeroSection() {
           {mounted && (
             <>
               <div
-                className="absolute h-[380px] w-[380px] md:h-[480px] md:w-[480px]"
+                className="absolute h-[310px] w-[310px] md:h-[400px] md:w-[400px]"
                 style={{ animation: 'spin 20s linear infinite' }}
               >
                 <div className="absolute left-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_10px_rgba(0,245,255,0.8)]" />
@@ -192,7 +132,7 @@ export function HeroSection() {
               </div>
 
               <div
-                className="absolute h-[320px] w-[320px] md:h-[420px] md:w-[420px]"
+                className="absolute h-[260px] w-[260px] md:h-[340px] md:w-[340px]"
                 style={{ animation: 'spin 15s linear infinite reverse' }}
               >
                 <div className="absolute bottom-0 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-neon-blue shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
@@ -200,6 +140,60 @@ export function HeroSection() {
               </div>
             </>
           )}
+        </div>
+
+        <div
+          className={`lg:col-span-2 flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <div>
+            <Button
+              size="lg"
+              className="group relative overflow-hidden px-8 text-primary-foreground shadow-sm transition-[transform,box-shadow,background-color] duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,245,255,0.35)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              asChild
+            >
+              <a href="#contact">
+                <span className="absolute inset-0 bg-linear-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="relative z-10 flex items-center gap-2">
+                  {t('cta_primary')}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                </span>
+              </a>
+            </Button>
+          </div>
+          <div>
+            <Button
+              size="lg"
+              variant="outline"
+              className="group border-border/50 bg-secondary/50 px-8 shadow-sm backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 hover:-translate-y-px hover:border-primary/50 hover:bg-secondary hover:shadow-[0_0_22px_rgba(139,92,246,0.25)] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              asChild
+            >
+              <a href="#projects">
+                <Code2 className="mr-2 h-4 w-4 text-primary transition-transform duration-300 group-hover:-translate-y-px group-hover:-rotate-6" />
+                {t('cta_secondary')}
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div
+          className={`lg:col-span-2 mt-4 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100' : 'opacity-0'
+            }`}
+        >
+          {techStack.map((tech, index) => (
+            <div
+              key={tech}
+              style={{
+                transitionDelay: mounted ? `${600 + index * 100}ms` : '0ms',
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? 'scale(1)' : 'scale(0.8)',
+              }}
+            >
+              <span className="glass block rounded-full px-4 py-2 text-xs font-medium text-white transition-all duration-500">
+                {tech}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useState, useRef } from 'react';
 import { MessageSquare, Wrench, Rocket } from 'lucide-react';
 import { SectionHeader } from '@/components/section-header';
+import { ReasonIcon } from '@/components/reason-icon';
 
 const steps = [
   { key: 'understand', icon: MessageSquare },
@@ -13,13 +14,10 @@ const steps = [
 
 export function ProcessSection() {
   const t = useTranslations('process');
-  const [mounted, setMounted] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    setMounted(true);
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -74,24 +72,7 @@ export function ProcessSection() {
 
                     {/* Step number with icon */}
                     <div className="relative z-10 mb-6 flex items-center gap-4">
-                      <div
-                        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-linear-to-br from-primary to-accent transition-transform duration-300 hover:scale-110"
-                        style={{
-                          boxShadow: '0 0 20px oklch(0.75 0.18 195 / 0.4)',
-                        }}
-                      >
-                        <Icon className="h-5 w-5 text-primary-foreground" />
-
-                        {/* Pulse effect */}
-                        {mounted && (
-                          <div
-                            className="absolute inset-0 rounded-full bg-linear-to-br from-primary to-accent"
-                            style={{
-                              animation: 'pulse-ring 2s ease-out infinite',
-                            }}
-                          />
-                        )}
-                      </div>
+                      <ReasonIcon Icon={Icon} />
 
                       <span className="text-4xl font-bold text-foreground/10">
                         {t(`steps.${step.key}.number`)}

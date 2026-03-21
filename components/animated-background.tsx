@@ -2,6 +2,46 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  color: string;
+  alpha: number;
+};
+
+function createParticle(width: number, height: number): Particle {
+  const colors = ['#22d3ee', '#a855f7', '#3b82f6'];
+  return {
+    x: Math.random() * width,
+    y: Math.random() * height,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    size: Math.random() * 2 + 0.5,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    alpha: Math.random() * 0.5 + 0.2,
+  };
+}
+
+function updateParticle(particle: Particle, width: number, height: number) {
+  particle.x += particle.vx;
+  particle.y += particle.vy;
+
+  if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+  if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+}
+
+function drawParticle(ctx: CanvasRenderingContext2D, particle: Particle) {
+  ctx.beginPath();
+  ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+  ctx.fillStyle = particle.color;
+  ctx.globalAlpha = particle.alpha;
+  ctx.fill();
+  ctx.globalAlpha = 1;
+}
+
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -23,50 +63,11 @@ export function AnimatedBackground() {
       canvas.height = window.innerHeight;
     };
 
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      color: string;
-      alpha: number;
-
-      constructor() {
-        this.x = Math.random() * (canvas?.width || window.innerWidth);
-        this.y = Math.random() * (canvas?.height || window.innerHeight);
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.size = Math.random() * 2 + 0.5;
-        const colors = ['#22d3ee', '#a855f7', '#3b82f6'];
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.alpha = Math.random() * 0.5 + 0.2;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > (canvas?.width || window.innerWidth)) this.vx *= -1;
-        if (this.y < 0 || this.y > (canvas?.height || window.innerHeight)) this.vy *= -1;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.alpha;
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
-    }
-
     const init = () => {
       particles = [];
       const particleCount = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 15000));
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+        particles.push(createParticle(canvas.width || window.innerWidth, canvas.height || window.innerHeight));
       }
     };
 
@@ -97,10 +98,10 @@ export function AnimatedBackground() {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
+      for (const particle of particles) {
+        updateParticle(particle, canvas.width, canvas.height);
+        drawParticle(ctx, particle);
+      }
 
       connectParticles();
       animationId = requestAnimationFrame(animate);
@@ -110,14 +111,15 @@ export function AnimatedBackground() {
     init();
     animate();
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resize();
       init();
-    });
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

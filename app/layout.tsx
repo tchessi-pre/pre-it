@@ -28,6 +28,9 @@ export const metadata: Metadata = {
       'Build your SaaS faster. I design and develop scalable SaaS platforms from idea to production.',
     type: 'website',
   },
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export const viewport: Viewport = {

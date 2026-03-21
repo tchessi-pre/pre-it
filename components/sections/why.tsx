@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useState, useRef } from 'react';
 import { Lightbulb, Code2, Trophy, Zap } from 'lucide-react';
 import { SectionHeader } from '@/components/section-header';
+import { ReasonIcon } from '@/components/reason-icon';
 
 const reasons = [
   { key: 'product', icon: Lightbulb },
@@ -125,9 +126,7 @@ export function WhySection() {
                     <div className='absolute -inset-px rounded-2xl bg-linear-to-r from-primary/0 via-primary/20 to-accent/0 opacity-100 blur transition-opacity duration-300 group-hover:opacity-0' />
 
                     <div className='relative z-10 flex items-start gap-4'>
-                      <div className='flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-primary/20 to-accent/20'>
-                        <Icon className='h-6 w-6 text-primary' />
-                      </div>
+                      <ReasonIcon Icon={Icon} />
                       <span className='ml-auto text-4xl font-bold text-primary/70 transition-colors group-hover:text-primary/50'>
                         {String(index + 1).padStart(2, '0')}
                       </span>

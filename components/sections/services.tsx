@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Rocket, Layers, TrendingUp, Search } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { SectionHeader } from '@/components/section-header';
+import { ReasonIcon } from '@/components/reason-icon';
 
 const services = [
   { key: 'mvp', icon: Rocket },
@@ -72,8 +73,8 @@ export function ServicesSection() {
                     <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-primary/20 to-accent/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-60" />
 
                     <div className="relative z-10 flex h-full flex-col">
-                      <div className="mb-4 inline-flex w-fit rounded-xl bg-linear-to-br from-primary/20 to-accent/20 p-3 shadow-[0_0_24px_rgba(0,245,255,0.10)]">
-                        <Icon className="h-6 w-6 text-primary" />
+                      <div className="mb-4">
+                        <ReasonIcon Icon={Icon} />
                       </div>
 
                       <h3 className="mb-2 text-lg font-semibold text-foreground">

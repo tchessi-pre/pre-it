@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { ArrowUp, Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from './language-switcher';
+import { NavbarBrand } from './navbar-brand';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -19,6 +20,7 @@ export function Navbar() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -31,6 +33,50 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const currentHash = window.location.hash.replace('#', '');
+    if (navItems.some((item) => item.key === currentHash)) {
+      setActiveSection(currentHash);
+    }
+
+    const sectionElements = navItems
+      .map((item) => document.getElementById(item.key))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (sectionElements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+        setActiveSection((visible.target as HTMLElement).id);
+      },
+      {
+        root: null,
+        rootMargin: '-35% 0px -55% 0px',
+        threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.65, 0.8],
+      }
+    );
+
+    for (const el of sectionElements) observer.observe(el);
+
+    const handleHashChange = () => {
+      const nextHash = window.location.hash.replace('#', '');
+      if (navItems.some((item) => item.key === nextHash)) {
+        setActiveSection(nextHash);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -72,26 +118,35 @@ export function Navbar() {
         />
 
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
-          <a
-            href="#"
-            className="group relative rounded-xl px-2 py-1 text-2xl font-bold tracking-tight transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <span className="bg-linear-to-r from-primary via-accent to-primary bg-clip-text text-transparent drop-shadow-[0_0_16px_rgba(0,245,255,0.18)]">
-              PRE-IT
-            </span>
-            <span className="absolute -inset-2 -z-10 rounded-xl bg-primary/10 opacity-0 blur-lg transition-opacity group-hover:opacity-100" />
-          </a>
+          <NavbarBrand />
 
           <nav className="hidden items-center gap-2 md:flex">
             {navItems.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                className="group relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:-translate-y-0.5 hover:bg-secondary/60 hover:text-foreground active:translate-y-0"
-              >
-                {t(item.key)}
-                <span className="absolute inset-x-4 -bottom-0.5 h-px w-0 bg-linear-to-r from-primary to-accent transition-all duration-200 group-hover:w-8" />
-              </a>
+              (() => {
+                const isActive = activeSection === item.key;
+                return (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    onClick={() => setActiveSection(item.key)}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={cn(
+                      'group relative rounded-full px-4 py-2 text-sm font-medium transition-all active:translate-y-0',
+                      isActive
+                        ? 'bg-secondary/60 text-foreground'
+                        : 'text-muted-foreground hover:-translate-y-0.5 hover:bg-secondary/60 hover:text-foreground'
+                    )}
+                  >
+                    {t(item.key)}
+                    <span
+                      className={cn(
+                        'absolute inset-x-4 -bottom-0.5 h-px bg-linear-to-r from-primary to-accent transition-all duration-200',
+                        isActive ? 'w-8' : 'w-0 group-hover:w-8'
+                      )}
+                    />
+                  </a>
+                );
+              })()
             ))}
           </nav>
 
@@ -144,8 +199,17 @@ export function Navbar() {
             <a
               key={item.key}
               href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-secondary/70 hover:text-foreground"
+              onClick={() => {
+                setActiveSection(item.key);
+                setIsMobileMenuOpen(false);
+              }}
+              aria-current={activeSection === item.key ? 'page' : undefined}
+              className={cn(
+                'rounded-xl px-4 py-3 text-sm font-medium transition-all hover:bg-secondary/70 hover:text-foreground',
+                activeSection === item.key
+                  ? 'bg-secondary/70 text-foreground'
+                  : 'text-muted-foreground'
+              )}
               style={{
                 transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms',
                 opacity: isMobileMenuOpen ? 1 : 0,
