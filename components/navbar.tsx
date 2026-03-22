@@ -6,9 +6,11 @@ import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from './language-switcher';
 import { NavbarBrand } from './navbar-brand';
 import { ScrollToTopButton } from './scroll-to-top-button';
+import { TechChatbox } from './tech-chatbox';
 import { cn } from '@/lib/utils';
 
 const navItems = [
+  { key: 'home', href: '#home' },
   { key: 'services', href: '#services' },
   { key: 'projects', href: '#projects' },
   { key: 'process', href: '#process' },
@@ -222,6 +224,7 @@ export function Navbar() {
       </div>
 
       <ScrollToTopButton disabled={isMobileMenuOpen} />
+      <TechChatbox disabled={isMobileMenuOpen} />
     </>
   );
 }

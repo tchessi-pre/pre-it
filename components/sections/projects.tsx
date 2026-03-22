@@ -107,12 +107,13 @@ export function ProjectsSection() {
   }, []);
 
   useEffect(() => {
+    if (!isInView) return;
     tabRefs.current[activeProject]?.scrollIntoView({
       block: 'nearest',
       behavior: 'smooth',
     });
     requestAnimationFrame(() => updateTabsScrollIndicators());
-  }, [activeProject, updateTabsScrollIndicators]);
+  }, [activeProject, isInView, updateTabsScrollIndicators]);
 
   const handleProjectChange = (index: number) => {
     if (index === activeProject) return;

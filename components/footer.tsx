@@ -1,9 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Briefcase, Github, Linkedin } from 'lucide-react';
 import { NavbarBrand } from '@/components/navbar-brand';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { SocialLinkWithTooltip } from '@/components/social-link-with-tooltip';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/tchessi-pre', label: 'GitHub' },
@@ -24,26 +25,18 @@ export function Footer() {
             <p className="mt-1 text-sm text-muted-foreground">{t('tagline')}</p>
           </div>
 
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              const isExternal = social.href.startsWith('http');
-              return (
-                <motion.a
+          <TooltipProvider delayDuration={0}>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <SocialLinkWithTooltip
                   key={social.label}
+                  icon={social.icon}
                   href={social.href}
-                  aria-label={social.label}
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noreferrer' : undefined}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-secondary/50 text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Icon className="h-4 w-4" />
-                </motion.a>
-              );
-            })}
-          </div>
+                  label={social.label}
+                />
+              ))}
+            </div>
+          </TooltipProvider>
 
           <p className="text-sm text-muted-foreground">
             {currentYear} {t('brand')}. {t('rights')}

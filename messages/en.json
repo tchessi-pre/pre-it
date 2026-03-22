@@ -1,13 +1,56 @@
 {
 	"nav": {
+		"home": "Home",
 		"services": "Services",
 		"projects": "Projects",
 		"process": "Process",
 		"contact": "Contact"
 	},
+	"chat": {
+		"launcher_label": "Open chat",
+		"close": "Close",
+		"title": "Chat",
+		"subtitle": "Quick questions about my stack",
+		"welcome": "Hi! Pick a question below and I’ll answer with details based on my stacks/projects.",
+		"quick_title": "Quick questions",
+		"questions": {
+			"stack": "What technologies do you use most?",
+			"frontend": "How do you handle frontend (React/Next.js)?",
+			"backend": "How do you build a Node.js API?",
+			"database": "What do you use for databases?",
+			"realtime": "Have you built real-time features (WebSocket)?",
+			"payments": "Have you integrated payments?",
+			"devops": "Do you handle deployment / CI-CD?",
+			"best_practices": "What best practices do you apply on projects?",
+			"clean_code": "How do you keep code clean and maintainable?",
+			"testing": "Do you write tests? (unit / integration / e2e)",
+			"code_review": "How do you handle reviews and code quality?"
+		},
+		"answers": {
+			"stack": "My go-to stack is TypeScript end-to-end, React / Next.js for UI, Node.js for APIs, and PostgreSQL for data. I regularly use Tailwind CSS, Radix/shadcn components, and depending on the project: Prisma, Strapi, AWS (S3), and integrations like Stripe.",
+			"frontend": "On the frontend, I start with a small design system (tokens, reusable components), then build pages optimized for performance and conversion (SEO, accessibility, Core Web Vitals). I’m comfortable with Next.js (App Router) for SSR/SSG, i18n, routing, and clean UI animations with Tailwind.",
+			"backend": "With Node.js, I build REST or real-time APIs with a clear structure (validation, error handling, service layer, DB access). I focus on security (auth, permissions), observability (useful logs), and stable endpoints (versioning when needed).",
+			"database": "I work a lot with PostgreSQL and product-oriented schemas (relations, indexes, constraints). Depending on the context I use Prisma, and I take care of migrations and performance (queries, pagination, aggregations).",
+			"realtime": "Yes: I’ve implemented real-time features with WebSocket / Socket.IO for events (statuses, notifications, live data). Key points are reconnection, socket auth, and load limits.",
+			"payments": "Yes: Stripe integrations (checkout, webhooks, subscriptions) and also more local constraints depending on context (e.g. Fedapay). I secure webhooks and design reliable payment state machines (idempotency, retries).",
+			"devops": "Yes: I can handle deployment and production hardening (environments, variables, build, monitoring). I use Docker when it makes sense, and I can set up simple CI/CD (tests + lint + deploy).",
+			"best_practices": "I set a solid foundation early: strict TypeScript, lint/format, naming conventions, reusable components, clear separation of UI / business logic / data, and consistent error handling. I keep PRs small and readable, and write minimal documentation when it helps (setup, key decisions).",
+			"clean_code": "I aim for simple code: short functions, clear responsibilities, explicit types, no duplicated logic, and an architecture that follows the product. I keep dependencies under control and refactor when an area becomes hard to change.",
+			"testing": "Yes when it protects business outcomes: unit tests for core logic, integration tests for critical API/DB paths, and optionally e2e tests for key flows. The goal is to prevent regressions without slowing delivery.",
+			"code_review": "Even solo, I work in PRs: a quality checklist (types, accessibility, performance), clear commit messages, and a self-review before merge. In a team, I suggest simple rules (required CI, PR conventions, definition of “done”)."
+		}
+	},
 	"hero": {
-		"badge": "Product Development Studio",
-		"headline": "Build your product. Faster.",
+		"badge": "Freelance Product Engineer",
+		"headline_top": "Turn your idea into a product,",
+		"headline_rotating_list": "Faster.|With quality.|With confidence.|With impact.",
+		"headline_rotating": {
+			"0": "Faster.",
+			"1": "With quality.",
+			"2": "With confidence.",
+			"3": "With impact."
+		},
+		"headline": "Turn your idea into a product. Faster.",
 		"subheadline": "I’m a freelance engineer building scalable web and mobile products from idea to production using React, Node.js and TypeScript.",
 		"cta_primary": "Start a project",
 		"cta_secondary": "View my work"
@@ -17,8 +60,8 @@
 		"subtitle": "End-to-end product development expertise",
 		"items": {
 			"mvp": {
-				"title": "SaaS MVP Development",
-				"description": "Transform your idea into a working product. I build minimum viable products that validate your business model and attract early users."
+				"title": "MVP Development",
+				"description": "Turn your idea into a working product. I build web/mobile MVPs to validate demand and serve your first users quickly."
 			},
 			"fullstack": {
 				"title": "Fullstack Product Development",
@@ -97,7 +140,7 @@
 			},
 			"experience": {
 				"title": "Production & DevOps",
-				"description": "Deployments, CI/CD, Docker, monitoring, and best practices to run a stable SaaS in production."
+				"description": "Deployments, CI/CD, Docker, monitoring, and best practices to run a stable product in production."
 			},
 			"execution": {
 				"title": "Fast Execution",

@@ -1,13 +1,56 @@
 {
 	"nav": {
+		"home": "Accueil",
 		"services": "Services",
 		"projects": "Projets",
 		"process": "Processus",
 		"contact": "Contact"
 	},
+	"chat": {
+		"launcher_label": "Ouvrir le chat",
+		"close": "Fermer",
+		"title": "Chat",
+		"subtitle": "Questions rapides sur mes technos",
+		"welcome": "Salut ! Choisis une question ci-dessous et je te réponds avec des infos basées sur mes stacks/projets.",
+		"quick_title": "Questions rapides",
+		"questions": {
+			"stack": "Quelles technos utilises-tu le plus ?",
+			"frontend": "Comment tu travailles le front (React/Next.js) ?",
+			"backend": "Comment tu construis une API Node.js ?",
+			"database": "Tu utilises quoi côté base de données ?",
+			"realtime": "Tu as déjà fait du temps réel (WebSocket) ?",
+			"payments": "Tu as déjà intégré des paiements ?",
+			"devops": "Tu gères le déploiement / CI-CD ?",
+			"best_practices": "Quelles bonnes pratiques tu appliques sur un projet ?",
+			"clean_code": "Comment tu garantis un code propre et maintenable ?",
+			"testing": "Tu fais des tests ? (unitaires / intégration / e2e)",
+			"code_review": "Comment tu gères les reviews et la qualité du code ?"
+		},
+		"answers": {
+			"stack": "Je travaille surtout avec TypeScript (front + back), React / Next.js côté UI, Node.js côté API, et PostgreSQL pour les données. J’utilise régulièrement Tailwind CSS, des composants Radix/shadcn, et selon le projet: Prisma, Strapi, AWS (S3), et des intégrations comme Stripe.",
+			"frontend": "En front, je pars sur une base design system (tokens, composants réutilisables), puis je construis des pages orientées conversion/performance (SEO, accessibilité, Core Web Vitals). Je suis à l’aise sur Next.js (App Router) pour SSR/SSG, i18n, routing, et une UI animée propre avec Tailwind.",
+			"backend": "Sur Node.js, je construis des API REST ou temps réel avec une structure claire (validation, erreurs, couche service, accès DB). Je mets l’accent sur la sécurité (auth, permissions), l’observabilité (logs utiles), et des endpoints stables (versioning si besoin).",
+			"database": "Je travaille beaucoup avec PostgreSQL et des schémas pensés produit (relations, index, contraintes). Selon le contexte j’utilise Prisma, et je veille aux migrations et à la performance (requêtes, pagination, agrégations).",
+			"realtime": "Oui: j’ai déjà mis en place du temps réel via WebSocket / Socket.IO pour des événements (statuts, notifications, données live). L’important est de gérer la reconnexion, l’auth côté socket, et les limites de charge.",
+			"payments": "Oui: intégrations Stripe (checkout, webhooks, abonnements) et aussi des contraintes plus locales selon le contexte (ex: Fedapay). Je sécurise les webhooks, et je conçois des états de paiement fiables (idempotence, retries).",
+			"devops": "Oui: je peux gérer déploiement et industrialisation (environnement, variables, build, monitoring). Je travaille avec Docker quand c’est utile, et je peux mettre en place une CI/CD simple (tests + lint + déploiement).",
+			"best_practices": "Je mets en place une base saine dès le début: TypeScript strict, lint/format, conventions de nommage, composants réutilisables, séparation claire UI / logique / data, et une gestion rigoureuse des erreurs. Je privilégie des PR petites et lisibles, et j’écris de la doc minimale quand ça aide (setup, décisions).",
+			"clean_code": "Je vise du code simple: fonctions courtes, responsabilités claires, types explicites, pas de logique dupliquée, et une architecture qui suit le produit (pas l’inverse). J’utilise des patterns cohérents, je garde les dépendances sous contrôle, et je refactor quand une zone devient difficile à modifier.",
+			"testing": "Oui quand ça a du sens business: tests unitaires sur la logique, tests d’intégration sur les parcours critiques (API/DB), et éventuellement du e2e sur les flows clés. L’objectif est de sécuriser les régressions sans ralentir la livraison.",
+			"code_review": "Même en solo, je travaille en PR: checklist qualité (types, accessibilité, perf), messages de commit clairs, et revue avant merge. Sur une équipe, je propose des règles simples (CI obligatoire, convention PR, définition de “done”)."
+		}
+	},
 	"hero": {
-		"badge": "Studio de développement produit",
-		"headline": "Construisez votre produit. Plus vite.",
+		"badge": "Ingénieur freelance — Développement produit",
+		"headline_top": "Transformez votre idée en produit,",
+		"headline_rotating_list": "Plus vite.|Avec qualité.|En confiance.|Avec impact.",
+		"headline_rotating": {
+			"0": "Plus vite.",
+			"1": "Avec qualité.",
+			"2": "En confiance.",
+			"3": "Avec impact."
+		},
+		"headline": "Transformez votre idée en produit. Plus vite.",
 		"subheadline": "Je suis freelance et je conçois/développe des produits web et mobiles évolutifs, de l’idée à la production, avec React, Node.js et TypeScript.",
 		"cta_primary": "Démarrer un projet",
 		"cta_secondary": "Voir mes réalisations"
@@ -17,8 +60,8 @@
 		"subtitle": "Expertise complète en développement produit",
 		"items": {
 			"mvp": {
-				"title": "Développement MVP SaaS",
-				"description": "Transformez votre idée en produit fonctionnel. Je construis des MVP qui valident votre modèle économique et attirent vos premiers utilisateurs."
+				"title": "Développement MVP",
+				"description": "Transformez votre idée en produit fonctionnel. Je construis des MVP web/mobile pour valider la demande et servir vos premiers utilisateurs rapidement."
 			},
 			"fullstack": {
 				"title": "Développement Produit Fullstack",
@@ -97,7 +140,7 @@
 			},
 			"experience": {
 				"title": "Production & DevOps",
-				"description": "Déploiement, CI/CD, Docker, monitoring et bonnes pratiques pour un SaaS stable en production."
+				"description": "Déploiement, CI/CD, Docker, monitoring et bonnes pratiques pour un produit stable en production."
 			},
 			"execution": {
 				"title": "Exécution Rapide",

@@ -4,11 +4,12 @@ import { useTranslations } from 'next-intl';
 import { ArrowRight, Code2, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export function HeroSection() {
   const t = useTranslations('hero');
   const [mounted, setMounted] = useState(false);
+  const [rotatingIndex, setRotatingIndex] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -16,28 +17,58 @@ export function HeroSection() {
 
   const techStack = ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'];
 
+  const rotatingWords = useMemo(() => {
+    const raw = t('headline_rotating_list');
+    return raw
+      .split('|')
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }, [t]);
+
+  useEffect(() => {
+    if (rotatingIndex < rotatingWords.length) return;
+    setRotatingIndex(0);
+  }, [rotatingIndex, rotatingWords.length]);
+
+  useEffect(() => {
+    if (!mounted) return;
+    if (rotatingWords.length <= 1) return;
+
+    const id = window.setInterval(() => {
+      setRotatingIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2600);
+
+    return () => window.clearInterval(id);
+  }, [mounted, rotatingWords.length]);
+
   return (
-    <section className="relative flex min-h-screen items-start justify-center overflow-x-hidden pt-20">
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
-        {/* Left side - Text content */}
-        <div className="text-center lg:text-left">
-          {/* Badge */}
-          <div
-            className={`mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-              }`}
-          >
+    <section
+      id="home"
+      className="relative flex min-h-screen items-start justify-center overflow-x-hidden pt-20"
+    >
+      <div className="relative mt-4 z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
+        <div
+          className={`lg:col-span-2 flex justify-center transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            }`}
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">{t('badge')}</span>
           </div>
-
+        </div>
+        {/* Left side - Text content */}
+        <div className="text-center lg:text-left">
           {/* Headline */}
           <h1
-            className={`mb-6 text-balance text-4xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 sm:text-5xl md:text-6xl lg:text-7xl ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`mb-6 text-balance text-3xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 sm:text-3xl md:text-4xl lg:text-6xl ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <span className="block text-foreground">{t('headline').split('.')[0]}.</span>
-            <span className="bg-linear-to-r from-primary via-accent to-neon-blue bg-clip-text text-transparent">
-              {t('headline').split('.')[1]?.trim() || 'Faster.'}
+            <span className="block text-foreground">{t('headline_top')}</span>
+            <span
+              key={rotatingIndex}
+              className="headline-rotating-aurora inline-block bg-linear-to-r from-primary via-accent to-neon-blue bg-clip-text [-webkit-background-clip:text] text-transparent animate-in fade-in-0 slide-in-from-bottom-2 duration-500"
+            >
+              {rotatingWords[rotatingIndex] ?? t('headline')}
             </span>
           </h1>
 
@@ -48,6 +79,40 @@ export function HeroSection() {
           >
             {t('subheadline')}
           </p>
+
+          <div
+            className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row lg:hidden ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
+            <div>
+              <Button
+                size="lg"
+                className="group relative overflow-hidden px-8 text-primary-foreground shadow-sm transition-[transform,box-shadow,background-color] duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(0,245,255,0.35)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                asChild
+              >
+                <a href="#contact">
+                  <span className="absolute inset-0 bg-linear-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    {t('cta_primary')}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+                  </span>
+                </a>
+              </Button>
+            </div>
+            <div>
+              <Button
+                size="lg"
+                variant="outline"
+                className="group border-border/50 bg-secondary/50 px-8 shadow-sm backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 hover:-translate-y-px hover:border-primary/50 hover:bg-secondary hover:shadow-[0_0_22px_rgba(139,92,246,0.25)] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                asChild
+              >
+                <a href="#projects">
+                  <Code2 className="mr-2 h-4 w-4 text-primary transition-transform duration-300 group-hover:-translate-y-px group-hover:-rotate-6" />
+                  {t('cta_secondary')}
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Right side - Animated Image */}
@@ -143,7 +208,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className={`lg:col-span-2 flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          className={`hidden lg:col-span-2 lg:flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
           <div>
@@ -198,7 +263,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div
+      {/* <div
         className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-700 delay-1000 ${mounted ? 'opacity-100' : 'opacity-0'
           }`}
       >
@@ -213,7 +278,7 @@ export function HeroSection() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
