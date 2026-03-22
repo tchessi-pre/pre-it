@@ -37,6 +37,7 @@
 	"projects": {
 		"title": "Projects",
 		"subtitle": "Real products, real impact",
+		"view_site": "View site",
 		"items": {
 			"technicert": {
 				"name": "Technicert",
@@ -50,7 +51,7 @@
 				"type": "Marketing website — Freight France ↔ Togo",
 				"problem": "Customers needed a clear website to understand shipping options, estimate pricing, and contact the team quickly.",
 				"solution": "Built a marketing website showcasing sea and air freight, with mode toggle, pricing calculator, booking form, and WhatsApp contact.",
-				"stack": "Marketing website, Responsive, SEO, Form, Pricing calculator"
+				"stack": "Marketing website, Responsive, PWA, SEO, Form, Pricing calculator"
 			},
 			"klikango": {
 				"name": "Klikango",
@@ -126,13 +127,13 @@
 		}
 	},
 	"cta": {
-		"title": "Let's build your product",
-		"subtitle": "Ready to turn your idea into a scalable product? Let’s talk.",
-		"button": "Book a discovery call",
+		"title": "Let’s talk about your product",
+		"subtitle": "Tell me what you’re building. I’ll reply quickly with a clear plan and next steps.",
+		"button": "Book a call",
 		"recipient_email": "contact@pre-it.dev",
 		"form": {
-			"title": "Book a discovery call",
-			"subtitle": "Share a few details and I’ll get back to you quickly.",
+			"title": "Book a call",
+			"subtitle": "Share a few details and I’ll get back to you quickly with a proposal.",
 			"mail_subject": "Discovery call request — PRE-IT",
 			"fields": {
 				"name": "Name",
@@ -147,17 +148,20 @@
 				"name": "Your name",
 				"email": "you@example.com",
 				"company": "Your company",
-				"message": "Briefly describe your project (goal, timeline, stack, etc.)"
+				"message": "Briefly describe your project (context, goal, timeline, stack, etc.)"
 			},
 			"actions": {
 				"cancel": "Cancel",
-				"submit": "Send request"
+				"submit": "Send request",
+				"submitting": "Sending..."
 			},
 			"success": {
-				"title": "Request ready",
-				"body": "Your email client should open with prefilled details. If nothing opens, copy the link and send it.",
+				"title": "You’re all set",
+				"body": "Your request has been sent. I’ll get back to you shortly.",
 				"copy": "Copy link",
-				"open_email": "Open email"
+				"open_email": "Open email",
+				"new_message": "Send another message",
+				"close": "Close"
 			},
 			"summary": {
 				"name": "Name",
@@ -169,9 +173,14 @@
 				"message": "Message"
 			},
 			"errors": {
+				"fix_required": "Please fill in the required fields.",
+				"date_past": "Please pick a date from today onward.",
 				"name_required": "Your name is required.",
 				"email_invalid": "Invalid email.",
-				"message_required": "Message is required."
+				"message_required": "Message is required.",
+				"emailjs_not_configured": "This form is not configured yet. Please try again later or email me.",
+				"send_failed": "Couldn’t send right now. Please try again in a few minutes.",
+				"send_timeout": "The service is taking too long to respond. Please try again in a few minutes."
 			}
 		}
 	},

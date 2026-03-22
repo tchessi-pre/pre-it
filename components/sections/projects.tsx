@@ -220,8 +220,8 @@ export function ProjectsSection() {
           <div className='lg:col-span-3'>
             <div
               className={`relative overflow-hidden rounded-2xl transition-all duration-300 ${isTransitioning
-                  ? 'opacity-0 translate-y-4'
-                  : 'opacity-100 translate-y-0'
+                ? 'opacity-0 translate-y-4'
+                : 'opacity-100 translate-y-0'
                 }`}
             >
               <div
@@ -270,7 +270,7 @@ export function ProjectsSection() {
                                 className='inline-flex items-center gap-2 rounded-full bg-secondary/30 px-3.5 py-2 text-sm font-medium text-foreground ring-1 ring-white/10 transition-all hover:scale-[1.03] hover:bg-secondary/45 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
                               >
                                 <ArrowUpRight className='h-5 w-5 text-primary' />
-                                <span>Voir le site</span>
+                                <span>{t('view_site')}</span>
                               </a>
                             )}
                           </div>

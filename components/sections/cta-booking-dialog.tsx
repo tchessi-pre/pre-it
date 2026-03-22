@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { ArrowRight, Copy, Mail } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { gugi } from '@/lib/fonts';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -12,18 +12,30 @@ import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '';
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '';
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? '';
+const EMAILJS_TIMEOUT_MS = 15000;
 
 export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
   const t = useTranslations('cta');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const now = new Date();
+  const minDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
   const formSchema = z.object({
     name: z.string().min(1, t('form.errors.name_required')),
     email: z.string().email(t('form.errors.email_invalid')),
     company: z.string().optional(),
-    date: z.string().optional(),
+    date: z
+      .string()
+      .optional()
+      .refine((value) => !value || value >= minDate, t('form.errors.date_past')),
     time: z.string().optional(),
     timezone: z.string().optional(),
     message: z.string().min(1, t('form.errors.message_required')),
@@ -45,39 +57,48 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
     mode: 'onTouched',
   });
 
-  const buildMailto = (values: FormValues) => {
-    const recipient = t('recipient_email') || 'tchessipre@gmail.com';
-    const subject = t('form.mail_subject');
-
-    const lines = [
-      `${t('form.summary.name')}: ${values.name}`,
-      `${t('form.summary.email')}: ${values.email}`,
-      values.company ? `${t('form.summary.company')}: ${values.company}` : null,
-      values.date ? `${t('form.summary.date')}: ${values.date}` : null,
-      values.time ? `${t('form.summary.time')}: ${values.time}` : null,
-      values.timezone ? `${t('form.summary.timezone')}: ${values.timezone}` : null,
-      '',
-      t('form.summary.message') + ':',
-      values.message,
-    ].filter(Boolean);
-
-    const body = lines.join('\n');
-
-    return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
   const onSubmit = async (values: FormValues) => {
-    const nextMailto = buildMailto(values);
-    setMailtoUrl(nextMailto);
-    setIsSubmitted(true);
-
     try {
-      window.location.href = nextMailto;
-    } catch {
-      try {
-        await navigator.clipboard.writeText(decodeURIComponent(nextMailto));
-      } catch {
+      setSubmitError(null);
+
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        setSubmitError(t('form.errors.emailjs_not_configured'));
+        return;
       }
+
+      const sendPromise = emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: values.name,
+          email: values.email,
+          company: values.company || '',
+          date: values.date || '',
+          time: values.time || '',
+          timezone: values.timezone || '',
+          message: values.message,
+          mail_subject: t('form.mail_subject'),
+          recipient_email: t('recipient_email'),
+          page_url: typeof window !== 'undefined' ? window.location.href : '',
+          locale: typeof navigator !== 'undefined' ? navigator.language : '',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), EMAILJS_TIMEOUT_MS)
+      );
+
+      await Promise.race([sendPromise, timeoutPromise]);
+
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      if (err instanceof Error && err.message === 'timeout') {
+        setSubmitError(t('form.errors.send_timeout'));
+        return;
+      }
+      setSubmitError(t('form.errors.send_failed'));
     }
   };
 
@@ -88,7 +109,7 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
         setIsDialogOpen(open);
         if (!open) {
           setIsSubmitted(false);
-          setMailtoUrl(null);
+          setSubmitError(null);
           form.reset();
         }
       }}
@@ -148,33 +169,36 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
                       type="button"
                       variant="outline"
                       className="border-border/60 bg-secondary/25"
-                      onClick={async () => {
-                        if (!mailtoUrl) return;
-                        try {
-                          await navigator.clipboard.writeText(decodeURIComponent(mailtoUrl));
-                        } catch {
-                        }
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setSubmitError(null);
+                        form.reset();
                       }}
                     >
-                      <Copy className="mr-2 h-4 w-4" />
-                      {t('form.success.copy')}
+                      {t('form.success.new_message')}
                     </Button>
                     <Button
                       type="button"
                       className="shadow-sm shadow-primary/20"
                       onClick={() => {
-                        if (!mailtoUrl) return;
-                        window.location.href = mailtoUrl;
+                        setIsDialogOpen(false);
                       }}
                     >
-                      <Mail className="mr-2 h-4 w-4" />
-                      {t('form.success.open_email')}
+                      {t('form.success.close')}
                     </Button>
                   </div>
                 </div>
               ) : (
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit, () => setSubmitError(t('form.errors.fix_required')))}
+                    className="grid gap-4"
+                  >
+                    {submitError && (
+                      <div className="rounded-xl border border-border/60 bg-secondary/25 p-4 text-left text-sm text-destructive">
+                        {submitError}
+                      </div>
+                    )}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <FormField
                         control={form.control}
@@ -232,7 +256,7 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
                           <FormItem>
                             <FormLabel>{t('form.fields.date')}</FormLabel>
                             <FormControl>
-                              <Input type="date" {...field} />
+                              <Input type="date" min={minDate} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -290,9 +314,18 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
                       >
                         {t('form.actions.cancel')}
                       </Button>
-                      <Button type="submit" className="group shadow-sm shadow-primary/20">
-                        {t('form.actions.submit')}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <Button type="submit" className="group shadow-sm shadow-primary/20" disabled={form.formState.isSubmitting}>
+                        {form.formState.isSubmitting ? (
+                          <>
+                            <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                            {t('form.actions.submitting')}
+                          </>
+                        ) : (
+                          <>
+                            {t('form.actions.submit')}
+                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          </>
+                        )}
                       </Button>
                     </div>
                   </form>

@@ -2,7 +2,6 @@
 
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
 import { locales, localeNames, type Locale } from '@/i18n/config';
 import { cn } from '@/lib/utils';
 
@@ -18,25 +17,26 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="glass relative flex items-center gap-1 rounded-full p-1">
+    <div
+      role="tablist"
+      aria-label="Language"
+      className="glass relative inline-flex items-center gap-1 rounded-full p-1 ring-1 ring-border/30 shadow-[0_0_25px_oklch(0.75_0.18_195/0.06)]"
+    >
       {locales.map((loc) => (
         <button
           key={loc}
+          type="button"
+          role="tab"
+          aria-selected={locale === loc}
           onClick={() => switchLocale(loc)}
           className={cn(
-            'relative z-10 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors',
-            locale === loc ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+            'relative rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] transition-[color,background-color,border-color,box-shadow,transform] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 active:scale-[0.98]',
+            locale === loc
+              ? 'border-primary/55 bg-primary/15 text-foreground shadow-[0_0_16px_oklch(0.75_0.18_195/0.16)]'
+              : 'border-transparent text-muted-foreground hover:border-border/40 hover:bg-foreground/5 hover:text-foreground'
           )}
         >
-          {locale === loc && (
-            <motion.span
-              layoutId="locale-indicator"
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent"
-              style={{ boxShadow: '0 0 15px oklch(0.75 0.18 195 / 0.5)' }}
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-          <span className="relative z-10">{localeNames[loc]}</span>
+          {localeNames[loc]}
         </button>
       ))}
     </div>
