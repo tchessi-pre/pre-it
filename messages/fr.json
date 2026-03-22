@@ -55,9 +55,34 @@
 		"cta_primary": "Démarrer un projet",
 		"cta_secondary": "Voir mes réalisations"
 	},
+	"brand": {
+		"tagline": "Freelance Web Ingénieur"
+	},
 	"services": {
 		"title": "Services",
 		"subtitle": "Expertise complète en développement produit",
+		"offers": {
+			"title": "Offres & modes de collaboration",
+			"subtitle": "Un cadre clair, des livrables concrets, et un rythme adapté à votre besoin.",
+			"cta": "Discuter de votre besoin",
+			"items": {
+				"mvp_sprint": {
+					"title": "MVP Sprint",
+					"description": "Idéal pour passer de l’idée à une première version utilisable.",
+					"bullets": "Cadrage + plan de livraison|Démos régulières|Mise en production"
+				},
+				"audit_plan": {
+					"title": "Audit + plan d’action",
+					"description": "Pour débloquer une situation technique ou sécuriser une roadmap.",
+					"bullets": "Revue code & architecture|Quick wins priorisés|Plan de migration (si besoin)"
+				},
+				"team_extension": {
+					"title": "Renfort d’équipe",
+					"description": "Je rejoins votre équipe pour livrer des features et stabiliser le produit.",
+					"bullets": "Fullstack (web + API)|Qualité & tests quand utile|CI/CD et prod hardening"
+				}
+			}
+		},
 		"items": {
 			"mvp": {
 				"title": "Développement MVP",
@@ -173,6 +198,30 @@
 		"title": "Parlons de votre produit",
 		"subtitle": "Expliquez-moi votre besoin. Je reviens vers vous rapidement avec un plan clair et des prochaines étapes.",
 		"button": "Réserver un appel",
+		"trust": {
+			"items": {
+				"reply": "Réponse sous 24h",
+				"call": "Appel découverte 30 min",
+				"nda": "NDA sur demande"
+			}
+		},
+		"faq": {
+			"title": "Questions rapides",
+			"items": {
+				"pricing": {
+					"q": "Quel budget prévoir ?",
+					"a": "Ça dépend du scope. Après un court échange, je vous propose un plan clair et une estimation. Je peux travailler au forfait (MVP / audit) ou au sprint."
+				},
+				"timeline": {
+					"q": "En combien de temps peut-on livrer ?",
+					"a": "Souvent en 2–6 semaines pour une première version utile (selon complexité). On découpe en jalons avec démos régulières."
+				},
+				"ownership": {
+					"q": "Qui possède le code et les accès ?",
+					"a": "Vous. Le dépôt, les environnements et les accès sont à votre nom. Je peux aussi faire un handover propre (docs minimales + passation)."
+				}
+			}
+		},
 		"recipient_email": "contact@pre-it.dev",
 		"form": {
 			"title": "Réserver un appel",
@@ -227,10 +276,58 @@
 			}
 		}
 	},
+	"legal": {
+		"title": "Mentions légales",
+		"intro": "Informations légales relatives à l’éditeur et à l’hébergement du site.",
+		"back_cta": "Retour au site",
+		"publisher_title": "Éditeur du site",
+		"publisher_name_label": "Nom / Entreprise",
+		"publisher_name_value": "PRE-IT (à compléter)",
+		"publisher_address_label": "Adresse",
+		"publisher_address_value": "À compléter",
+		"publisher_email_label": "Email",
+		"publisher_email_value": "contact@pre-it.dev",
+		"publisher_director_label": "Directeur de publication",
+		"publisher_director_value": "À compléter",
+		"hosting_title": "Hébergement",
+		"hosting_name_label": "Hébergeur",
+		"hosting_name_value": "À compléter",
+		"hosting_address_label": "Adresse",
+		"hosting_address_value": "À compléter",
+		"hosting_site_label": "Site",
+		"hosting_site_value": "https://vercel.com",
+		"ip_title": "Propriété intellectuelle",
+		"ip_text": "Sauf mention contraire, l’ensemble des contenus (textes, visuels, logos, code) est protégé par le droit d’auteur. Toute reproduction ou réutilisation sans autorisation est interdite.",
+		"liability_title": "Responsabilité",
+		"liability_text": "Les informations fournies sur ce site le sont à titre indicatif et peuvent évoluer. L’éditeur ne saurait être tenu responsable des dommages résultant de l’utilisation du site."
+	},
+	"privacy": {
+		"title": "Politique de confidentialité",
+		"intro": "Cette page explique quelles données sont collectées, pourquoi, et comment exercer vos droits.",
+		"back_cta": "Contacter",
+		"data_title": "Données collectées",
+		"data_text": "Lorsque vous utilisez le formulaire de contact, je collecte les informations que vous renseignez (nom, email, date/heure souhaitées, message).",
+		"purpose_title": "Finalités",
+		"purpose_text": "Ces données sont utilisées uniquement pour répondre à votre demande, planifier un échange, et assurer le suivi du projet.",
+		"legal_basis_title": "Base légale",
+		"legal_basis_text": "Le traitement repose sur votre consentement et/ou sur l’exécution de mesures précontractuelles à votre demande.",
+		"recipients_title": "Destinataires",
+		"recipients_text": "Les données sont destinées à PRE-IT. Elles peuvent transiter via des prestataires techniques nécessaires à l’envoi des emails (ex: service d’email).",
+		"retention_title": "Durée de conservation",
+		"retention_text": "Les échanges sont conservés le temps nécessaire au traitement de votre demande, puis archivés/supprimés selon les besoins légaux et opérationnels.",
+		"rights_title": "Vos droits",
+		"rights_text": "Vous pouvez demander l’accès, la rectification ou la suppression de vos données, ainsi que limiter le traitement, en me contactant.",
+		"contact_label": "Email :",
+		"contact_email": "contact@pre-it.dev",
+		"cookies_title": "Cookies",
+		"cookies_text": "Ce site n’utilise pas de cookies publicitaires. Des cookies techniques peuvent être nécessaires au bon fonctionnement selon l’hébergement."
+	},
 	"footer": {
 		"brand": "PRE-IT",
 		"tagline": "Freelance Web Ingenieur",
 		"back_to_top": "Retour en haut",
+		"legal_notice": "Mentions légales",
+		"privacy_policy": "Confidentialité",
 		"rights": "Tous droits réservés."
 	}
 }

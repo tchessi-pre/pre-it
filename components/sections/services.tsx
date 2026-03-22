@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Rocket, Layers, TrendingUp, Search } from 'lucide-react';
+import { Rocket, Layers, TrendingUp, Search, CalendarDays, ListChecks, Handshake } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { SectionHeader } from '@/components/section-header';
 import { ReasonIcon } from '@/components/reason-icon';
@@ -11,6 +11,12 @@ const services = [
 	{ key: 'fullstack', icon: Layers },
 	{ key: 'scaling', icon: TrendingUp },
 	{ key: 'audit', icon: Search },
+];
+
+const offers = [
+	{ key: 'mvp_sprint', icon: CalendarDays },
+	{ key: 'audit_plan', icon: ListChecks },
+	{ key: 'team_extension', icon: Handshake },
 ];
 
 export function ServicesSection() {
@@ -108,6 +114,81 @@ export function ServicesSection() {
 							</div>
 						);
 					})}
+				</div>
+
+				<div
+					className={`mt-14 transition-all duration-700 ${
+						isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+					}`}
+					style={{ transitionDelay: isVisible ? '750ms' : '0ms' }}
+				>
+					<div className='mx-auto mt-8 h-px w-24 bg-linear-to-r from-transparent via-border to-transparent' />
+
+					<div className='mt-12 text-center'>
+						<h3 className='text-2xl font-semibold tracking-tight text-foreground md:text-3xl'>
+							{t('offers.title')}
+						</h3>
+						<p className='mx-auto mt-3 max-w-2xl text-base text-muted-foreground md:text-lg'>
+							{t('offers.subtitle')}
+						</p>
+					</div>
+
+					<div className='mt-10 grid gap-6 md:grid-cols-3'>
+						{offers.map((offer, index) => {
+							const Icon = offer.icon;
+							const bullets = t(`offers.items.${offer.key}.bullets`)
+								.split('|')
+								.map((s) => s.trim())
+								.filter(Boolean);
+
+							return (
+								<div
+									key={offer.key}
+									className='group relative'
+									style={{ transitionDelay: isVisible ? `${900 + index * 120}ms` : '0ms' }}
+								>
+									<div className='relative h-full rounded-2xl bg-linear-to-br from-primary/22 via-transparent to-accent/22 p-px transition-all duration-300 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:shadow-[0_0_60px_rgba(0,245,255,0.08)]'>
+										<div className='glass relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.01]'>
+											<div className='absolute inset-0 bg-linear-to-br from-primary/8 via-transparent to-accent/8 opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
+											<div className='relative z-10 flex h-full flex-col'>
+												<div className='mb-4'>
+													<ReasonIcon Icon={Icon} />
+												</div>
+
+												<h4 className='text-lg font-semibold text-foreground'>
+													{t(`offers.items.${offer.key}.title`)}
+												</h4>
+												<p className='mt-2 text-sm leading-relaxed text-muted-foreground'>
+													{t(`offers.items.${offer.key}.description`)}
+												</p>
+
+												<div className='mt-5 space-y-2 text-sm text-muted-foreground'>
+													{bullets.map((bullet) => (
+														<div key={bullet} className='flex items-start gap-2'>
+															<span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70' />
+															<span>{bullet}</span>
+														</div>
+													))}
+												</div>
+
+												<div className='mt-auto pt-6'>
+													<a
+														href='#contact'
+														className='inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/85'
+													>
+														{t('offers.cta')}
+														<span className='transition-transform duration-300 group-hover:translate-x-0.5'>
+															→
+														</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</section>

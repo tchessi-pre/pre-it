@@ -2,10 +2,11 @@
 
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar, Clock, ShieldCheck } from 'lucide-react';
 import { gugi } from '@/lib/fonts';
 import { CtaBookingDialog } from '@/components/sections/cta-booking-dialog';
 import { ReasonIcon } from '@/components/reason-icon';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export function CTASection() {
   const t = useTranslations('cta');
@@ -115,6 +116,49 @@ export function CTASection() {
               {/* CTA Button */}
               <div className="inline-block transition-transform motion-reduce:transition-none hover:scale-[1.02] active:scale-[0.98]">
                 <CtaBookingDialog mounted={mounted} />
+              </div>
+
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground sm:flex-row">
+                <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/25 px-4 py-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  {t('trust.items.reply')}
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/25 px-4 py-2">
+                  <Calendar className="h-4 w-4 text-primary" />
+                  {t('trust.items.call')}
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/25 px-4 py-2">
+                  <ShieldCheck className="h-4 w-4 text-primary" />
+                  {t('trust.items.nda')}
+                </span>
+              </div>
+
+              <div className="mx-auto mt-10 max-w-2xl text-left">
+                <div className="mb-4 text-sm font-medium text-foreground">
+                  {t('faq.title')}
+                </div>
+                <div className="rounded-2xl border border-border/50 bg-secondary/15 px-5">
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="pricing">
+                      <AccordionTrigger>{t('faq.items.pricing.q')}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {t('faq.items.pricing.a')}
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="timeline">
+                      <AccordionTrigger>{t('faq.items.timeline.q')}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {t('faq.items.timeline.a')}
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="ownership">
+                      <AccordionTrigger>{t('faq.items.ownership.q')}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {t('faq.items.ownership.a')}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
               </div>
 
               {/* Decorative particles */}

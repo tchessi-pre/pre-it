@@ -119,7 +119,7 @@ export function Navbar() {
         />
 
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
-          <NavbarBrand />
+          <NavbarBrand showTagline />
 
           <nav className="hidden items-center gap-2 md:flex">
             {navItems.map((item) => (

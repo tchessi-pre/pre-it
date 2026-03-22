@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Briefcase, Github, Linkedin } from 'lucide-react';
 import { NavbarBrand } from '@/components/navbar-brand';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -14,6 +14,7 @@ const socialLinks = [
 
 export function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,7 +23,6 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="text-center md:text-left">
             <NavbarBrand />
-            <p className="mt-1 text-sm text-muted-foreground">{t('tagline')}</p>
           </div>
 
           <TooltipProvider delayDuration={0}>
@@ -38,9 +38,28 @@ export function Footer() {
             </div>
           </TooltipProvider>
 
-          <p className="text-sm text-muted-foreground">
-            {currentYear} {t('brand')}. {t('rights')}
-          </p>
+          <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground md:items-end">
+            <div className="flex items-center gap-3">
+              <a
+                href={`/${locale}/mentions-legales`}
+                className="transition-colors hover:text-foreground"
+              >
+                {t('legal_notice')}
+              </a>
+              <span aria-hidden className="text-muted-foreground/60">
+                •
+              </span>
+              <a
+                href={`/${locale}/confidentialite`}
+                className="transition-colors hover:text-foreground"
+              >
+                {t('privacy_policy')}
+              </a>
+            </div>
+            <p>
+              {currentYear} {t('brand')}. {t('rights')}
+            </p>
+          </div>
         </div>
       </div>
 

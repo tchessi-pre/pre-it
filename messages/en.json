@@ -55,9 +55,34 @@
 		"cta_primary": "Start a project",
 		"cta_secondary": "View my work"
 	},
+	"brand": {
+		"tagline": "Freelance Web Engineer"
+	},
 	"services": {
 		"title": "Services",
 		"subtitle": "End-to-end product development expertise",
+		"offers": {
+			"title": "Offers & ways to work together",
+			"subtitle": "Clear scope, concrete deliverables, and a cadence that fits your needs.",
+			"cta": "Talk about your project",
+			"items": {
+				"mvp_sprint": {
+					"title": "MVP Sprint",
+					"description": "Ideal to go from idea to a usable first version.",
+					"bullets": "Scoping + delivery plan|Regular demos|Production launch"
+				},
+				"audit_plan": {
+					"title": "Audit + action plan",
+					"description": "To unblock technical issues or de-risk your roadmap.",
+					"bullets": "Code & architecture review|Prioritized quick wins|Migration plan (if needed)"
+				},
+				"team_extension": {
+					"title": "Team extension",
+					"description": "I join your team to ship features and stabilize the product.",
+					"bullets": "Fullstack (web + API)|Quality & tests when it matters|CI/CD and production hardening"
+				}
+			}
+		},
 		"items": {
 			"mvp": {
 				"title": "MVP Development",
@@ -173,6 +198,30 @@
 		"title": "Let’s talk about your product",
 		"subtitle": "Tell me what you’re building. I’ll reply quickly with a clear plan and next steps.",
 		"button": "Book a call",
+		"trust": {
+			"items": {
+				"reply": "Reply within 24h",
+				"call": "30-min discovery call",
+				"nda": "NDA available"
+			}
+		},
+		"faq": {
+			"title": "Quick questions",
+			"items": {
+				"pricing": {
+					"q": "What budget should I expect?",
+					"a": "It depends on scope. After a short call, I’ll share a clear plan and an estimate. I can work fixed-price (MVP/audit) or in sprints."
+				},
+				"timeline": {
+					"q": "How fast can we ship?",
+					"a": "Often 2–6 weeks for a first useful version (depending on complexity). We split into milestones with regular demos."
+				},
+				"ownership": {
+					"q": "Who owns the code and access?",
+					"a": "You do. Repos, environments, and access stay under your accounts. I can also provide a clean handover (minimal docs + walkthrough)."
+				}
+			}
+		},
 		"recipient_email": "contact@pre-it.dev",
 		"form": {
 			"title": "Book a call",
@@ -227,9 +276,57 @@
 			}
 		}
 	},
+	"legal": {
+		"title": "Legal notice",
+		"intro": "Legal information about the publisher and hosting of this website.",
+		"back_cta": "Back to site",
+		"publisher_title": "Website publisher",
+		"publisher_name_label": "Name / Company",
+		"publisher_name_value": "PRE-IT (to fill)",
+		"publisher_address_label": "Address",
+		"publisher_address_value": "To fill",
+		"publisher_email_label": "Email",
+		"publisher_email_value": "contact@pre-it.dev",
+		"publisher_director_label": "Publication director",
+		"publisher_director_value": "To fill",
+		"hosting_title": "Hosting",
+		"hosting_name_label": "Host",
+		"hosting_name_value": "To fill",
+		"hosting_address_label": "Address",
+		"hosting_address_value": "To fill",
+		"hosting_site_label": "Website",
+		"hosting_site_value": "https://vercel.com",
+		"ip_title": "Intellectual property",
+		"ip_text": "Unless stated otherwise, all content (text, visuals, logos, code) is protected by copyright. Any reproduction or reuse without authorization is prohibited.",
+		"liability_title": "Liability",
+		"liability_text": "Information on this website is provided for informational purposes and may change. The publisher cannot be held liable for damages resulting from the use of the site."
+	},
+	"privacy": {
+		"title": "Privacy policy",
+		"intro": "This page explains what data is collected, why, and how to exercise your rights.",
+		"back_cta": "Contact",
+		"data_title": "Data collected",
+		"data_text": "When you use the contact form, I collect the information you provide (name, email, preferred date/time, message).",
+		"purpose_title": "Purpose",
+		"purpose_text": "This data is used only to reply to your request, schedule a call, and follow up on the project.",
+		"legal_basis_title": "Legal basis",
+		"legal_basis_text": "Processing is based on your consent and/or taking steps at your request prior to entering into a contract.",
+		"recipients_title": "Recipients",
+		"recipients_text": "Data is intended for PRE-IT. It may transit through technical providers required to send emails (e.g., an email service).",
+		"retention_title": "Retention",
+		"retention_text": "Messages are kept as long as needed to handle your request, then archived/deleted according to legal and operational requirements.",
+		"rights_title": "Your rights",
+		"rights_text": "You can request access, rectification, or deletion of your data, as well as restriction of processing, by contacting me.",
+		"contact_label": "Email:",
+		"contact_email": "contact@pre-it.dev",
+		"cookies_title": "Cookies",
+		"cookies_text": "This website does not use advertising cookies. Technical cookies may be required for proper operation depending on hosting."
+	},
 	"footer": {
 		"brand": "PRE-IT",
 		"tagline": "Freelance Web Ingenieur",
+		"legal_notice": "Legal notice",
+		"privacy_policy": "Privacy",
 		"rights": "All rights reserved."
 	}
 }
