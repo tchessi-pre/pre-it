@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState, useRef } from 'react';
 import { Lightbulb, Code2, Trophy, Zap } from 'lucide-react';
-import { SectionHeader } from '@/components/section-header';
-import { ReasonIcon } from '@/components/reason-icon';
+import { SectionHeader } from '@/components/shared/section-header';
+import { ReasonIcon } from '@/components/shared/reason-icon';
 
 const reasons = [
   { key: 'product', icon: Lightbulb },

@@ -3,8 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { useEffect, useState, useRef } from 'react';
 import { MessageSquare, Wrench, Rocket } from 'lucide-react';
-import { SectionHeader } from '@/components/section-header';
-import { ReasonIcon } from '@/components/reason-icon';
+import { SectionHeader } from '@/components/shared/section-header';
+import { ReasonIcon } from '@/components/shared/reason-icon';
 
 const steps = [
   { key: 'understand', icon: MessageSquare },

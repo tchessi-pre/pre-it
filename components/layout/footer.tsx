@@ -2,13 +2,17 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { Briefcase, Github, Linkedin } from 'lucide-react';
-import { NavbarBrand } from '@/components/navbar-brand';
+import { NavbarBrand } from '@/components/branding/navbar-brand';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { SocialLinkWithTooltip } from '@/components/social-link-with-tooltip';
+import { SocialLinkWithTooltip } from '@/components/shared/social-link-with-tooltip';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/tchessi-pre', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/tch%C3%A8ssi-pre-2a8479216/', label: 'LinkedIn' },
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/in/tch%C3%A8ssi-pre-2a8479216/',
+    label: 'LinkedIn',
+  },
   { icon: Briefcase, href: 'https://www.tchessi-pre.dev/', label: 'Mon port Portfolio' },
 ];
 
@@ -63,7 +67,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Background glow */}
       <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-40 w-80 -translate-x-1/2 bg-linear-to-t from-primary/5 to-transparent blur-3xl" />
     </footer>
   );

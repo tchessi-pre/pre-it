@@ -48,8 +48,7 @@ export function HeroSection() {
     >
       <div className="relative mt-4 z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
         <div
-          className={`lg:col-span-2 flex justify-center transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-            }`}
+          className="lg:col-span-2 flex justify-center transition-all duration-700 motion-reduce:transition-none"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
             <Sparkles className="h-4 w-4 text-primary" />
@@ -60,8 +59,7 @@ export function HeroSection() {
         <div className="text-center lg:text-left">
           {/* Headline */}
           <h1
-            className={`mb-6 text-balance text-3xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 sm:text-3xl md:text-4xl lg:text-6xl ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className="mb-6 text-balance text-3xl font-bold leading-tight tracking-tight transition-all duration-700 delay-100 motion-reduce:transition-none sm:text-3xl md:text-4xl lg:text-6xl"
           >
             <span className="block text-foreground">{t('headline_top')}</span>
             <span
@@ -74,15 +72,13 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p
-            className={`mx-auto mb-10 max-w-2xl text-pretty text-lg text-muted-foreground transition-all duration-700 delay-200 sm:text-xl lg:mx-0 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className="mx-auto mb-10 max-w-2xl text-pretty text-lg text-muted-foreground transition-all duration-700 delay-200 motion-reduce:transition-none sm:text-xl lg:mx-0"
           >
             {t('subheadline')}
           </p>
 
           <div
-            className={`flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row lg:hidden ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+            className="flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 motion-reduce:transition-none sm:flex-row lg:hidden"
           >
             <div>
               <Button
@@ -117,8 +113,7 @@ export function HeroSection() {
 
         {/* Right side - Animated Image */}
         <div
-          className={`relative flex items-center justify-center transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            }`}
+          className="relative flex items-center justify-center transition-all duration-1000 delay-300 motion-reduce:transition-none"
         >
           {/* Outer glow ring */}
           <div
@@ -208,8 +203,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className={`hidden lg:col-span-2 lg:flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 sm:flex-row ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          className="hidden lg:col-span-2 lg:flex flex-col items-center justify-center gap-4 transition-all duration-700 delay-300 motion-reduce:transition-none sm:flex-row"
         >
           <div>
             <Button
@@ -242,17 +236,12 @@ export function HeroSection() {
         </div>
 
         <div
-          className={`lg:col-span-2 mt-4 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100' : 'opacity-0'
-            }`}
+          className="lg:col-span-2 mt-4 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-500 motion-reduce:transition-none"
         >
           {techStack.map((tech, index) => (
             <div
               key={tech}
-              style={{
-                transitionDelay: mounted ? `${600 + index * 100}ms` : '0ms',
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? 'scale(1)' : 'scale(0.8)',
-              }}
+              style={{ transitionDelay: `${600 + index * 100}ms` }}
             >
               <span className="glass block rounded-full px-4 py-2 text-xs font-medium text-white transition-all duration-500">
                 {tech}

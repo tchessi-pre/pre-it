@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from './language-switcher';
-import { NavbarBrand } from './navbar-brand';
 import { ScrollToTopButton } from './scroll-to-top-button';
-import { TechChatbox } from './tech-chatbox';
+import { NavbarBrand } from '@/components/branding/navbar-brand';
+import { TechChatbox } from '@/components/shared/tech-chatbox';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -122,7 +122,7 @@ export function Navbar() {
           <NavbarBrand showTagline />
 
           <nav className="hidden items-center gap-2 md:flex">
-            {navItems.map((item) => (
+            {navItems.map((item) =>
               (() => {
                 const isActive = activeSection === item.key;
                 return (
@@ -148,7 +148,7 @@ export function Navbar() {
                   </a>
                 );
               })()
-            ))}
+            )}
           </nav>
 
           <div className="flex items-center gap-4">

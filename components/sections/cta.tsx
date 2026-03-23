@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Calendar, Clock, ShieldCheck } from 'lucide-react';
 import { gugi } from '@/lib/fonts';
 import { CtaBookingDialog } from '@/components/sections/cta-booking-dialog';
-import { ReasonIcon } from '@/components/reason-icon';
+import { ReasonIcon } from '@/components/shared/reason-icon';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export function CTASection() {

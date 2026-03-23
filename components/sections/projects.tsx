@@ -10,7 +10,7 @@ import {
   Github,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { SectionHeader } from '@/components/section-header';
+import { SectionHeader } from '@/components/shared/section-header';
 
 type ProjectLink = {
   github?: string;

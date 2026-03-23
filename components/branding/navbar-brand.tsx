@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { PreItLogo } from '@/components/pre-it-logo';
+import { PreItLogo } from './pre-it-logo';
 import { gugi } from '@/lib/fonts';
 
 export function NavbarBrand({

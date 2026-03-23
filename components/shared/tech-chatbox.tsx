@@ -160,4 +160,3 @@ export function TechChatbox({ disabled }: { disabled?: boolean }) {
     </>
   );
 }
-

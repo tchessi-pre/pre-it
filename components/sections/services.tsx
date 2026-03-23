@@ -3,8 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { Rocket, Layers, TrendingUp, Search, CalendarDays, ListChecks, Handshake } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { SectionHeader } from '@/components/section-header';
-import { ReasonIcon } from '@/components/reason-icon';
+import { SectionHeader } from '@/components/shared/section-header';
+import { ReasonIcon } from '@/components/shared/reason-icon';
 
 const services = [
 	{ key: 'mvp', icon: Rocket },

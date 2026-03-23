@@ -1,6 +1,6 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { Footer } from '@/components/footer';
-import { PageWrapper } from '@/components/page-wrapper';
+import { Footer } from '@/components/layout/footer';
+import { PageWrapper } from '@/components/layout/page-wrapper';
 import { gugi } from '@/lib/fonts';
 
 export default async function MentionsLegalesPage({

@@ -48,7 +48,7 @@ export function AnimatedBackground() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -65,9 +65,14 @@ export function AnimatedBackground() {
 
     const init = () => {
       particles = [];
-      const particleCount = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+      const particleCount = Math.min(
+        80,
+        Math.floor((window.innerWidth * window.innerHeight) / 15000)
+      );
       for (let i = 0; i < particleCount; i++) {
-        particles.push(createParticle(canvas.width || window.innerWidth, canvas.height || window.innerHeight));
+        particles.push(
+          createParticle(canvas.width || window.innerWidth, canvas.height || window.innerHeight)
+        );
       }
     };
 
@@ -125,7 +130,6 @@ export function AnimatedBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Gradient orbs - using CSS animations to avoid hydration issues */}
       {mounted && (
         <>
           <div
@@ -152,13 +156,10 @@ export function AnimatedBackground() {
         </>
       )}
 
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30" />
 
-      {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0" />
 
-      {/* Noise texture overlay */}
       <div
         className="absolute inset-0 opacity-[0.015]"
         style={{
