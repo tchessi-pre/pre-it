@@ -4,61 +4,81 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+	subsets: ['latin'],
+	variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
-  title: 'PRE-IT | SaaS Development Studio',
-  description:
-    'Build your SaaS faster. I design and develop scalable SaaS platforms from idea to production using React, Node.js and TypeScript.',
-  keywords: [
-    'SaaS Development',
-    'Fullstack Developer',
-    'React',
-    'Node.js',
-    'TypeScript',
-    'Next.js',
-    'MVP Development',
-  ],
-  authors: [{ name: 'PRE-IT' }],
-  openGraph: {
-    title: 'PRE-IT | SaaS Development Studio',
-    description:
-      'Build your SaaS faster. I design and develop scalable SaaS platforms from idea to production.',
-    type: 'website',
-  },
-  icons: {
-    icon: '/icon.svg',
-  },
+	metadataBase: new URL('https://pre-it.vercel.app/'),
+	title: {
+		default: 'PRE-IT — Freelance Fullstack Engineer',
+		template: '%s | PRE-IT',
+	},
+	description:
+		'Freelance fullstack engineer building high-performance web products (SaaS, MVP) from idea to production with Next.js, TypeScript, and Node.js.',
+	keywords: [
+		'Freelance Fullstack Engineer',
+		'Freelance Web Developer',
+		'Next.js',
+		'React',
+		'TypeScript',
+		'Node.js',
+		'SaaS development',
+		'MVP development',
+		'Fullstack engineer',
+	],
+	authors: [{ name: 'PRE-IT' }],
+	creator: 'PRE-IT',
+	publisher: 'PRE-IT',
+	robots: {
+		index: true,
+		follow: true,
+	},
+	openGraph: {
+		title: 'PRE-IT — Freelance Fullstack Engineer',
+		description:
+			'Freelance fullstack engineer helping teams ship SaaS and MVPs faster with Next.js, TypeScript, and Node.js.',
+		url: 'https://pre-it.vercel.app/',
+		siteName: 'PRE-IT',
+		type: 'website',
+	},
+	twitter: {
+		card: 'summary',
+		title: 'PRE-IT — Freelance Fullstack Engineer',
+		description:
+			'Freelance fullstack engineer building SaaS and MVPs with Next.js, TypeScript, and Node.js.',
+	},
+	icons: {
+		icon: '/icon.svg',
+	},
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a12',
-  colorScheme: 'dark',
+	themeColor: '#0a0a12',
+	colorScheme: 'dark',
 };
 
 export default async function RootLayout({
-  children,
-  params,
+	children,
+	params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale?: string }>;
+	children: React.ReactNode;
+	params: Promise<{ locale?: string }>;
 }>) {
-  const { locale } = await params;
-  const lang = locale || 'en';
+	const { locale } = await params;
+	const lang = locale || 'en';
 
-  return (
-    <html
-      lang={lang}
-      className="dark"
-      suppressHydrationWarning
-      data-scroll-behavior="smooth"
-    >
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  );
+	return (
+		<html
+			lang={lang}
+			className='dark'
+			suppressHydrationWarning
+			data-scroll-behavior='smooth'
+		>
+			<body className={`${inter.variable} font-sans antialiased`}>
+				{children}
+				<Analytics />
+			</body>
+		</html>
+	);
 }

@@ -40,7 +40,7 @@ export function CTASection() {
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener('change', updateReducedMotionPreference);
     } else {
-      mediaQuery.addEventListener('change', updateReducedMotionPreference);
+      mediaQuery.addListener(updateReducedMotionPreference);
     }
 
     return () => {
@@ -54,7 +54,7 @@ export function CTASection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="relative overflow-hidden py-24 md:py-32">
+    <section ref={sectionRef} id="contact" className="relative overflow-hidden py-16 sm:py-20 md:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.75_0.18_195/0.10),transparent_60%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.75_0.18_195/0.06)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.75_0.18_195/0.06)_1px,transparent_1px)] bg-size-[56px_56px] mask-[radial-gradient(ellipse_at_center,black_55%,transparent_78%)]" />
@@ -78,12 +78,12 @@ export function CTASection() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div
           className={`relative transition-all duration-700 motion-reduce:transition-none ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 motion-reduce:translate-y-0'}`}
         >
           <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary/40 via-accent/25 to-neon-blue/40 p-px shadow-[0_0_80px_rgba(0,245,255,0.07)]">
-            <div className="glass-strong relative overflow-hidden rounded-3xl px-8 py-14 text-center ring-1 ring-white/10 md:px-16 md:py-18">
+            <div className="glass-strong relative overflow-hidden rounded-3xl px-5 py-10 text-center ring-1 ring-white/10 sm:px-8 sm:py-12 md:px-16 md:py-16">
               <div className="pointer-events-none absolute inset-0">
                 <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-accent/10" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.75_0.18_195/0.10),transparent_55%)]" />
@@ -91,18 +91,17 @@ export function CTASection() {
 
               {/* Icon */}
               <div
-                className={`mx-auto flex justify-center mb-8 transition-all duration-500 delay-200 motion-reduce:transition-none ${isInView ? 'scale-100 opacity-100' : 'scale-0 opacity-0 motion-reduce:scale-100'
-                  }`}
+                className={`mx-auto mb-6 flex justify-center transition-all duration-500 delay-200 motion-reduce:transition-none ${isInView ? 'scale-100 opacity-100' : 'scale-0 opacity-0 motion-reduce:scale-100'}`}
               >
                 <ReasonIcon
                   Icon={Calendar}
-                  wrapperClassName="h-16 w-16 rounded-xl"
-                  iconClassName="h-7 w-7"
+                  wrapperClassName="h-14 w-14 rounded-xl sm:h-16 sm:w-16"
+                  iconClassName="h-6 w-6 sm:h-7 sm:w-7"
                 />
               </div>
 
               {/* Title */}
-              <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <h2 className="mb-3 text-2xl font-bold tracking-tight sm:mb-4 sm:text-3xl md:text-5xl">
                 <span
                   className={`${gugi.className} bg-linear-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent`}
                 >
@@ -111,14 +110,16 @@ export function CTASection() {
               </h2>
 
               {/* Subtitle */}
-              <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground md:text-xl">{t('subtitle')}</p>
+              <p className="mx-auto mb-8 max-w-xl text-base text-muted-foreground sm:text-lg md:mb-10 md:text-xl">
+                {t('subtitle')}
+              </p>
 
               {/* CTA Button */}
-              <div className="inline-block transition-transform motion-reduce:transition-none hover:scale-[1.02] active:scale-[0.98]">
+              <div className="w-full transition-transform motion-reduce:transition-none sm:inline-block sm:w-auto hover:scale-[1.02] active:scale-[0.98]">
                 <CtaBookingDialog mounted={mounted} />
               </div>
 
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground sm:flex-row">
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground sm:mt-8 sm:flex-row sm:flex-wrap">
                 <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/25 px-4 py-2">
                   <Clock className="h-4 w-4 text-primary" />
                   {t('trust.items.reply')}
@@ -137,7 +138,7 @@ export function CTASection() {
                 <div className="mb-4 text-sm font-medium text-foreground">
                   {t('faq.title')}
                 </div>
-                <div className="rounded-2xl border border-border/50 bg-secondary/15 px-5">
+                <div className="rounded-2xl border border-border/50 bg-secondary/15 px-4 sm:px-5">
                   <Accordion type="single" collapsible>
                     <AccordionItem value="pricing">
                       <AccordionTrigger>{t('faq.items.pricing.q')}</AccordionTrigger>

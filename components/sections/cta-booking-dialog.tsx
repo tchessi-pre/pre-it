@@ -117,7 +117,7 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="group relative overflow-hidden  bg-size-[200%_100%] px-10 py-6 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/20 ring-1 ring-white/15 transition-all hover:bg-right hover:shadow-primary/30 focus-visible:ring-white/25"
+          className="group relative w-full overflow-hidden bg-size-[200%_100%] px-6 py-5 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 ring-1 ring-white/15 transition-all hover:bg-right hover:shadow-primary/30 focus-visible:ring-white/25 sm:w-auto sm:px-10 sm:py-6 sm:text-lg"
         >
           <span className="relative z-10 flex items-center gap-2">
             {t('button')}
@@ -136,9 +136,9 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="border-border/60 bg-transparent p-0 sm:max-w-xl">
-        <div className="relative overflow-hidden rounded-lg bg-linear-to-br from-primary/35 via-accent/20 to-neon-blue/35 p-px">
-          <div className="glass-strong relative overflow-hidden rounded-lg p-6 ring-1 ring-white/10 sm:p-7">
+      <DialogContent className="top-4 max-h-[calc(100vh-2rem)] w-[calc(100vw-2rem)] translate-y-0 overflow-y-auto border-border/60 p-0 sm:top-[50%] sm:max-h-[calc(100vh-4rem)] sm:max-w-xl sm:translate-y-[-50%]">
+        <div className="relative overflow-hidden rounded-lg bg-linear-to-br from-primary/35 via-accent/20 to-neon-blue/80 p-px">
+          <div className="relative overflow-hidden rounded-lg border border-border/60 bg-background p-5 ring-1 ring-white/10 sm:p-7">
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.75_0.18_195/0.14),transparent_60%)]" />
               <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full bg-primary/15 blur-3xl" />
@@ -146,14 +146,14 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
             </div>
 
             <DialogHeader className="relative">
-              <DialogTitle className="text-2xl">
+              <DialogTitle className="text-xl sm:text-2xl">
                 <span
                   className={`${gugi.className} bg-linear-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent`}
                 >
                   {t('form.title')}
                 </span>
               </DialogTitle>
-              <DialogDescription className="text-base">{t('form.subtitle')}</DialogDescription>
+              <DialogDescription className="text-sm sm:text-base">{t('form.subtitle')}</DialogDescription>
             </DialogHeader>
 
             <div className="relative mt-5">
@@ -317,7 +317,7 @@ export function CtaBookingDialog({ mounted }: { mounted: boolean }) {
                       <Button type="submit" className="group shadow-sm shadow-primary/20" disabled={form.formState.isSubmitting}>
                         {form.formState.isSubmitting ? (
                           <>
-                            <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             {t('form.actions.submitting')}
                           </>
                         ) : (

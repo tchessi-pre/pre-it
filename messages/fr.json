@@ -41,7 +41,7 @@
 		}
 	},
 	"hero": {
-		"badge": "Ingénieur freelance — Développement produit",
+		"badge": "Ingénieur Fullstack-freelance ",
 		"headline_top": "Transformez votre idée en produit,",
 		"headline_rotating_list": "Plus vite.|Avec qualité.|En confiance.|Avec impact.",
 		"headline_rotating": {
@@ -202,7 +202,7 @@
 			"items": {
 				"reply": "Réponse sous 24h",
 				"call": "Appel découverte 30 min",
-				"nda": "NDA sur demande"
+				"nda": "Accord de confidentialité sur demande"
 			}
 		},
 		"faq": {
@@ -324,7 +324,7 @@
 	},
 	"footer": {
 		"brand": "PRE-IT",
-		"tagline": "Freelance Web Ingenieur",
+		"tagline": "Freelance Web Ingénieur",
 		"back_to_top": "Retour en haut",
 		"legal_notice": "Mentions légales",
 		"privacy_policy": "Confidentialité",

@@ -41,7 +41,7 @@
 		}
 	},
 	"hero": {
-		"badge": "Freelance Product Engineer",
+		"badge": "Freelance-Fullstack Engineer",
 		"headline_top": "Turn your idea into a product,",
 		"headline_rotating_list": "Faster.|With quality.|With confidence.|With impact.",
 		"headline_rotating": {
@@ -202,7 +202,7 @@
 			"items": {
 				"reply": "Reply within 24h",
 				"call": "30-min discovery call",
-				"nda": "NDA available"
+				"nda": "NDA available upon request"
 			}
 		},
 		"faq": {
@@ -324,7 +324,7 @@
 	},
 	"footer": {
 		"brand": "PRE-IT",
-		"tagline": "Freelance Web Ingenieur",
+		"tagline": "Freelance Web Engineer",
 		"legal_notice": "Legal notice",
 		"privacy_policy": "Privacy",
 		"rights": "All rights reserved."
