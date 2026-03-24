@@ -118,7 +118,7 @@ export function Navbar() {
           )}
         />
 
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
+        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 sm:px-6">
           <NavbarBrand showTagline />
 
           <nav className="hidden items-center gap-2 md:flex">
@@ -151,7 +151,7 @@ export function Navbar() {
             )}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <LanguageSwitcher />
 
             <button
@@ -189,7 +189,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          'glass-strong fixed inset-x-0 top-[72px] z-40 border-b border-border/50 transition-all duration-300 md:hidden',
+          'glass-strong fixed inset-x-0 top-[72px] z-40 max-h-[calc(100vh-72px)] overflow-y-auto border-b border-border/50 transition-all duration-300 md:hidden',
           isMobileMenuOpen
             ? 'translate-y-0 opacity-100'
             : '-translate-y-4 opacity-0 pointer-events-none'

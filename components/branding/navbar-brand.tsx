@@ -38,7 +38,7 @@ export function NavbarBrand({
           </span>
         </span>
         {showTagline ? (
-          <span className="pl-10 text-xs font-medium text-muted-foreground">
+          <span className="hidden pl-10 text-xs font-medium text-muted-foreground md:block">
             {tagline ?? t('tagline')}
           </span>
         ) : null}

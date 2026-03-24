@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: 'PRE-IT — Freelance Fullstack Engineer',
 		description:
-			'Freelance fullstack engineer helping teams ship SaaS and MVPs faster with Next.js, TypeScript, and Node.js.',
+			'Freelance full‑stack engineer crafting SaaS and MVPs with Next.js, TypeScript and Node.js — from scoping to launch with fast, reliable, production‑ready code.',
 		url: 'https://pre-it.vercel.app/',
 		siteName: 'PRE-IT',
 		type: 'website',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 		card: 'summary',
 		title: 'PRE-IT — Freelance Fullstack Engineer',
 		description:
-			'Freelance fullstack engineer building SaaS and MVPs with Next.js, TypeScript, and Node.js.',
+			'Freelance full‑stack engineer crafting SaaS and MVPs with Next.js, TypeScript and Node.js — from scoping to launch with fast, reliable, production‑ready code.',
 	},
 	icons: {
 		icon: '/icon.svg',
